@@ -1,0 +1,60 @@
+div.mainContainer{
+	margin-left: 10%;
+	margin-right: 10%;
+	padding: 10px;
+	font-family: "Roboto Condensed", sans-serif;
+}
+
+.search {
+	float: right;
+}
+
+.borders {
+	padding: 5px;
+	background-color: maroon;
+	color: gold;
+}
+
+.forCalendarWide {
+	float: left;
+}
+
+.forCalendarTite {
+	float: left;
+	width: 80%;
+}
+
+.forCreator {
+	width: 20%;
+	float: right;
+}
+
+.header{
+	font-size: 2em;
+	text-align: center;
+	line-height: 1em;
+}
+
+.footer {
+	padding-left: 80%;
+	clear: both;
+}
+
+.inLine{
+	float: right;
+}
+
+input {
+	margin-top: 3px;
+	margin-bottom: 3px;
+	height: 30px;
+	width: 20%;
+	float: left;
+}
+
+button {
+	margin-top: 3px;
+	margin-bottom: 3px;
+	border-radius: 0px;
+}
+
