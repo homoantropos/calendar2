@@ -1,0 +1,42 @@
+table{
+	table-layout: fixed;
+	width: 100%;
+	border: solid white 0.1em;
+	text-align: center;
+}
+
+.title{
+	width: 40%;
+	background-color: burlywood;
+	text-align: left;
+}
+
+.start{
+	width: 9%;
+	background-color: blanchedalmond;
+}
+
+.end{
+	width: 9%;
+	background-color: AntiqueWhite;
+}
+
+.days{
+	width: 5%;
+	background-color: Beige;
+}
+
+.country{
+	width: 9%;
+	background-color: AliceBlue;
+}
+
+.region{
+	width: 14%;
+	background-color: Azure;
+}
+
+.town{
+	width: 14%;
+	background-color: Aquamarine;
+}

@@ -1,0 +1,117 @@
+<div
+	class = "mainContainer"
+	name = "mainContainer"
+	*appToggle = "isVisible"
+	[ngClass] = "{valid: eventCreatorForm.valid,
+		      invalid: eventCreatorForm.invalid}">
+
+ <p class = "header">СТВОРІТЬ ЗАХІД</p>
+
+ <form
+	name = "eventCreatorForm"
+	[formGroup] = "eventCreatorForm"
+	(ngSubmit) = "createEvent(eventCreatorForm.value)">
+
+  <label name = "title" for = "title">Назва:</label>
+  <input matInput
+	name = "title"
+	id = "title"
+	type = "text"
+	title = "Введіть назву заходу."
+	placeholder = "Назва..."
+	#titleInput
+	formControlName = "title"
+  >
+  <div class = "error"
+	*ngIf = "eventCreatorForm.get('title').invalid && eventCreatorForm.get('title').touched">
+   <small *ngIf = "eventCreatorForm.get('title').errors.required">Поле повинне бути заповнене</small>
+  </div>
+
+  <label name = "start" for = "start">Дата початку:</label>
+  <input matInput
+	name = "start"
+	id = "start"
+	type = "text"
+	title = "Введіть дату початку заходу."
+	placeholder = "Дата початку..."
+	formControlName = "start"
+  >
+  <div class = "error"
+	*ngIf = "eventCreatorForm.get('start').invalid && eventCreatorForm.get('start').touched">
+   <small *ngIf = "eventCreatorForm.get('start').errors.required">Поле повинне бути заповнене</small>
+  </div>
+
+  <label name = "end" for = "end">Дата завершення:</label>
+  <input matInput
+	name = "end"
+	id = "end"
+	type = "text"
+	title = "Введіть дату завершення заходу."
+	placeholder = "Дата завершення..."
+	formControlName = "end"
+  >
+  <div class = "error"
+	*ngIf = "eventCreatorForm.get('end').invalid && eventCreatorForm.get('end').touched">
+   <small *ngIf = "eventCreatorForm.get('end').errors.required">Поле повинне бути заповнене</small>
+  </div>
+
+  <label name = "days" for = "days">Тривалість:</label>
+  <input matInput
+	name = "days"
+	id = "days"
+	type = "text"
+	title = "Введіть тривалість (днів)  заходу."
+	placeholder = "Тривалість..."
+	formControlName = "days"
+  >
+  <div class = "error"
+	*ngIf = "eventCreatorForm.get('days').invalid && eventCreatorForm.get('days').touched">
+   <small *ngIf = "eventCreatorForm.get('days').errors.required">Поле повинне бути заповнене</small>
+  </div>
+
+  <label name = "country" for = "country">Країна проведення:</label>
+  <input matInput
+	name = "country"
+	id = "country"
+	type = "text"
+	title = "Введіть назву країни проведення заходу."
+	placeholder = "Країна..."
+	formControlName = "country"
+  >
+
+  <label name = "region" for = "region">Територія:</label>
+  <input matInput
+	name = "region"
+	id = "region"
+	type = "text"
+	title = "Введіть територію (область України або місто Київ) проведення заходу."
+	placeholder = "Територія..."
+	formControlName = "region"
+  >
+
+  <label name = "town" for = "town">Місто:</label>
+  <input matInput
+	name = "town"
+	id = "town"
+	type = "text"
+	title = "Введіть місто проведення заходу."
+	placeholder = "Місто..."
+	formControlName = "town"
+  >
+  <div class = "error"
+	*ngIf = "eventCreatorForm.get('town').invalid && eventCreatorForm.get('town').touched">
+   <small *ngIf = "eventCreatorForm.get('town').errors.required">Поле повинне бути заповнене</small>
+  </div>
+
+  <button
+	mat-raised-button
+	color = "primary"
+	type = "submit"
+	[disabled] = "eventCreatorForm.invalid"
+  >
+   Створити
+  </button>
+
+ </form>
+
+</div>
