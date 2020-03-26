@@ -9,6 +9,7 @@ import { SingleEventComponent } from './single-event/single-event.component';
 import { EventCreatorComponent } from './event-creator/event-creator.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToggleDirective } from './directives/toggle.directive';
+import { MagnifierDirective } from './directives/magnifier.directive';
 import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
@@ -17,6 +18,7 @@ import { FilterPipe } from './pipes/filter.pipe';
     SingleEventComponent,
     EventCreatorComponent,
     ToggleDirective,
+    MagnifierDirective,
     FilterPipe
   ],
   imports: [
