@@ -24,6 +24,10 @@ input {
 	height: 25px;
 }
 
+input.ng-invalid.ng-touched {border: solid red 1px;}
+
+input.ng-valid.ng-touched {border: solid green 1px}
+
 button {
 	margin-top: 3px;
 	margin-bottom: 3px;

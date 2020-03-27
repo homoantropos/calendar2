@@ -3,7 +3,7 @@
 	name = "mainContainer"
 	*appToggle = "isVisible"
 	[ngClass] = "{valid: eventCreatorForm.valid,
-		      invalid: eventCreatorForm.invalid}">
+		      invalid: eventCreatorForm.invalid && eventCreatorForm.touched}">
 
  <p class = "header">СТВОРІТЬ ЗАХІД</p>
 
