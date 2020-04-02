@@ -1,8 +1,14 @@
 table{
 	table-layout: fixed;
 	width: 100%;
-	border: solid white 0.1em;
 	text-align: center;
+	border-collapse: collapse;
+}
+
+td {
+	border: solid white 0.1em;
+	border-top: none;
+	padding: 3px;
 }
 
 .title{

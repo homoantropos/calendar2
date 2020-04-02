@@ -1,7 +1,7 @@
 export class Event {
 	title: string;
-	start: string;
-	end: string;
+	start: Date;
+	end: Date;
 	days: number;
 	country?: string;
 	region?: string;
@@ -9,8 +9,8 @@ export class Event {
 
 constructor(
 	title: string,
-	start: string,
-	end: string,
+	start: Date,
+	end: Date,
 	days: number,
 	town: string,
 	country?: string,

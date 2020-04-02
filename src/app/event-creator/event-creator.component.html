@@ -10,7 +10,7 @@
  <form
 	name = "eventCreatorForm"
 	[formGroup] = "eventCreatorForm"
-	(ngSubmit) = "createEvent(eventCreatorForm.value)">
+	(ngSubmit) = "createEvent()">
 
   <label name = "title" for = "title">Назва:</label>
   <input matInput
@@ -28,46 +28,84 @@
   </div>
 
   <label name = "start" for = "start">Дата початку:</label>
-  <input matInput
-	name = "start"
-	id = "start"
+  <form formGroupName = "start" id = "start">
+   <input matInput class = "forDateInput"
+	name = "year"
 	type = "text"
-	title = "Введіть дату початку заходу."
-	placeholder = "Дата початку..."
-	formControlName = "start"
-  >
-  <div class = "error"
-	*ngIf = "eventCreatorForm.get('start').invalid && eventCreatorForm.get('start').touched">
-   <small *ngIf = "eventCreatorForm.get('start').errors.required">Поле повинне бути заповнене</small>
-  </div>
+	title = "Введіть рік початку заходу."
+	placeholder = "Рік..."
+	formControlName = "year"
+   >
+   <div class = "error"
+	*ngIf = "eventCreatorForm.get('start').get('year').invalid && eventCreatorForm.get('start').get('year').touched">
+    <small *ngIf = "eventCreatorForm.get('start').get('year').errors.required">Поле повинне бути заповнене</small>
+   </div>
+
+   <input matInput class = "forDateInput"
+	name = "month"
+	type = "text"
+	title = "Введіть місяць початку заходу."
+	placeholder = "Місяць..."
+	formControlName = "month"
+   >
+   <div class = "error"
+	*ngIf = "eventCreatorForm.get('start').get('month').invalid && eventCreatorForm.get('start').get('month').touched">
+    <small *ngIf = "eventCreatorForm.get('start').get('month').errors.required">Поле повинне бути заповнене</small>
+   </div>
+
+   <input matInput class = "forDateInput"
+	name = "day"
+	type = "text"
+	title = "Введіть день початку заходу."
+	placeholder = "День..."
+	formControlName = "day"
+   >
+   <div class = "error"
+	*ngIf = "eventCreatorForm.get('start').get('day').invalid && eventCreatorForm.get('start').get('day').touched">
+    <small *ngIf = "eventCreatorForm.get('start').get('day').errors.required">Поле повинне бути заповнене</small>
+   </div>
+
+  </form>
 
   <label name = "end" for = "end">Дата завершення:</label>
-  <input matInput
-	name = "end"
-	id = "end"
-	type = "text"
-	title = "Введіть дату завершення заходу."
-	placeholder = "Дата завершення..."
-	formControlName = "end"
-  >
-  <div class = "error"
-	*ngIf = "eventCreatorForm.get('end').invalid && eventCreatorForm.get('end').touched">
-   <small *ngIf = "eventCreatorForm.get('end').errors.required">Поле повинне бути заповнене</small>
-  </div>
+  <form formGroupName = "end" id = "end">
 
-  <label name = "days" for = "days">Тривалість:</label>
-  <input matInput
-	name = "days"
-	id = "days"
+   <input matInput class = "forDateInput"
+	name = "year"
 	type = "text"
-	title = "Введіть тривалість (днів)  заходу."
-	placeholder = "Тривалість..."
-	formControlName = "days"
-  >
-  <div class = "error"
-	*ngIf = "eventCreatorForm.get('days').invalid && eventCreatorForm.get('days').touched">
-   <small *ngIf = "eventCreatorForm.get('days').errors.required">Поле повинне бути заповнене</small>
-  </div>
+	title = "Введіть рік завершення заходу."
+	placeholder = "Рік..."
+	formControlName = "year"
+   >
+   <div class = "error"
+	*ngIf = "eventCreatorForm.get('end').get('year').invalid && eventCreatorForm.get('end').get('year').touched">
+    <small *ngIf = "eventCreatorForm.get('end').get('year').errors.required">Поле повинне бути заповнене</small>
+   </div>
+
+   <input matInput class = "forDateInput"
+	name = "month"
+	type = "text"
+	title = "Введіть місяць завершення заходу."
+	placeholder = "Місяць..."
+	formControlName = "month"
+   >
+   <div class = "error"
+	*ngIf = "eventCreatorForm.get('end').get('month').invalid && eventCreatorForm.get('end').get('month').touched">
+    <small *ngIf = "eventCreatorForm.get('end').get('month').errors.required">Поле повинне бути заповнене</small>
+   </div>
+
+   <input matInput class = "forDateInput"
+	name = "day"
+	type = "text"
+	title = "Введіть день завершення заходу."
+	placeholder = "День..."
+	formControlName = "day"
+   >
+   <div class = "error"
+	*ngIf = "eventCreatorForm.get('end').get('day').invalid && eventCreatorForm.get('end').get('day').touched">
+    <small *ngIf = "eventCreatorForm.get('end').get('day').errors.required">Поле повинне бути заповнене</small>
+   </div>
+  </form>
 
   <label name = "country" for = "country">Країна проведення:</label>
   <input matInput
