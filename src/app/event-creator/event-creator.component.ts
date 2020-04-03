@@ -2,6 +2,7 @@ import { Component, ViewChild, Output, EventEmitter, ElementRef, OnInit } from '
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { Event } from '../single-event/event.model';
+import {DateProviderService} from '../services/date-provider.service';
 
 @Component({
   selector: 'app-event-creator',
@@ -16,7 +17,7 @@ eventCreatorForm: FormGroup;
 @Output() createdEvent: EventEmitter<Event>;
 isVisible = true;
 
-  constructor() {
+  constructor(private dateCTR: DateProviderService) {
     this.createdEvent = new EventEmitter<Event>();
   }
 
@@ -37,25 +38,17 @@ isVisible = true;
     });
   }
   createEvent() {
-    const start: Date = new Date(
-      this.eventCreatorForm.get('start').get('year').value,
-      this.eventCreatorForm.get('start').get('month').value,
-      this.eventCreatorForm.get('start').get('day').value);
-    const end: Date = new Date(
-      this.eventCreatorForm.get('end').get('year').value,
-      this.eventCreatorForm.get('end').get('month').value,
-      this.eventCreatorForm.get('end').get('day').value);
-    // @ts-ignore
-    const days: number = 1 + (end - start) / (1000 * 24 * 60 * 60);
-    const event = new Event (
-      this.eventCreatorForm.get('title').value,
-      start,
-      end,
-      days,
+    this.createdEvent.emit(
+      new Event (
+        this.eventCreatorForm.get('title').value,
+        this.dateCTR.getDate(this.eventCreatorForm.value.start),
+        this.dateCTR.getDate(this.eventCreatorForm.value.end),
+        this.dateCTR.getDuration(
+          this.dateCTR.getDate(this.eventCreatorForm.value.start),
+          this.dateCTR.getDate(this.eventCreatorForm.value.end)),
       this.eventCreatorForm.get('town').value,
       this.eventCreatorForm.get('country').value,
-      this.eventCreatorForm.get('region').value);
-    this.createdEvent.emit(event);
+      this.eventCreatorForm.get('region').value));
     this.eventCreatorForm.reset();
     this.elTitle.nativeElement.focus();
   }

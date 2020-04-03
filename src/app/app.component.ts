@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild, ElementRef } from '@angular/core';
+import {Component, Input, ViewChild, ElementRef, OnInit} from '@angular/core';
 import { EventCreatorComponent } from './event-creator/event-creator.component';
 import { Event } from './single-event/event.model';
 
@@ -8,7 +8,7 @@ import { Event } from './single-event/event.model';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
 calendar: Event[];
 isVisible = false;
 search = '';
@@ -16,7 +16,7 @@ searchField = 'title';
 @ViewChild('filterInput') filterInputRef: ElementRef;
 
   title = 'calendar2';
-	constructor(){
+	constructor() {
 		this.calendar = [
 		new Event ('Міжнародний спортивно-масовий захід серед учнів "ISF WORLD COOL GAMES"', new Date(2020, 11, 18), new Date(2020, 11, 23), 6, 'Київ', 'Україна', 'Київ'),
 		new Event ('Чемпіонат України з рукопашного бою серед учнів', new Date(2020, 3, 15), new Date(2020, 3, 17), 3, 'Київ', 'Україна', 'Київ'),
@@ -29,9 +29,15 @@ searchField = 'title';
 		new Event ('Кубок України з боксу серед студентів', new Date(2020, 4, 20), new Date(2020, 4, 20), 3, 'Полтава', 'Україна', 'Полтавська обл.'),
 		];
 	}
+ngOnInit(): void {
+	  // @ts-ignore
+	  this.calendar = this.calendar.sort((a, b) => a.start - b.start);
+}
 
-	addEvent(event: Event) {
+  addEvent(event: Event) {
 		this.calendar.unshift(event);
+		// @ts-ignore
+		this.calendar = this.calendar.sort((a, b) => a.start - b.start);
 	}
 
 	chandgeSearchField() {
