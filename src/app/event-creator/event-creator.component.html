@@ -10,7 +10,7 @@
  <form
 	name = "eventCreatorForm"
 	[formGroup] = "eventCreatorForm"
-	(ngSubmit) = "createEvent()">
+	(ngSubmit) = "createEvent(eventCreatorForm.value)">
 
   <label name = "title" for = "title">Назва:</label>
   <input matInput

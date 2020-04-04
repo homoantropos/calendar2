@@ -37,18 +37,21 @@ isVisible = true;
       region: new FormControl('')
     });
   }
-  createEvent() {
+  createEvent(valueF: any) {
     this.createdEvent.emit(
       new Event (
-        this.eventCreatorForm.get('title').value,
-        this.dateCTR.getDate(this.eventCreatorForm.value.start),
-        this.dateCTR.getDate(this.eventCreatorForm.value.end),
+        valueF.title,
+        this.dateCTR.getDate(valueF.start),
+        this.dateCTR.getDate(valueF.end),
         this.dateCTR.getDuration(
-          this.dateCTR.getDate(this.eventCreatorForm.value.start),
-          this.dateCTR.getDate(this.eventCreatorForm.value.end)),
-      this.eventCreatorForm.get('town').value,
-      this.eventCreatorForm.get('country').value,
-      this.eventCreatorForm.get('region').value));
+          this.dateCTR.getDate(valueF.start),
+          this.dateCTR.getDate(valueF.end)
+        ),
+        valueF.town,
+        valueF.country,
+        valueF.region
+      )
+    );
     this.eventCreatorForm.reset();
     this.elTitle.nativeElement.focus();
   }
