@@ -1,47 +1,12 @@
-<div name = "mainContainer" class = "mainContainer">
-<div name = "header" class = "borders header">КАЛЕНДАРНИЙ ПЛАН<br>
-спортивно-масових та спортивних заходів Комітету з фізичного виховання та спорту
-Міністерства освіти і науки України</div>
+<div id = "mainContainer" class = "mainContainer">
+  <div id = "header" class = "borders header">КАЛЕНДАРНИЙ ПЛАН<br>
+    спортивно-масових та спортивних заходів Комітету з фізичного виховання та спорту
+    Міністерства освіти і науки України</div>
 
- <div name = "forCalendar"
-	[ngClass] = "{
-		      forCalendarWide: !isVisible,
-		      forCalendarTite: isVisible
-		     }">
+  <router-outlet></router-outlet>
 
-  <div name = "filters" id = "filters">
-
-     <button mat-raised-button color = "primary" class = "inLine"
-	[ngStyle] = "{'margin-right': '3px', 'margin-left': '7%'}"
-	(click) = "isVisible = !isVisible">
-	 <small *ngIf = "!isVisible">Додати</small>
-         <small *ngIf  = "isVisible">Сховати</small>
-     </button>
-     <button mat-raised-button color = "primary" class = "inLine" (click) = "chandgeSearchField()"><small>Датою</small></button>
-     <button mat-raised-button color = "primary" class = "inLine" (click) = "chandgeSearchField()"><small>Назвою</small></button>
-     <label for = "filters" class = "inLine" [ngStyle] = "{lineHeight: '3em', marginRight: '5px'}">Пошук за:</label>
-
-     <input matInput name = "search" type = "text" placeholder = "Пошук..."
-	class = "inLine"
-	[(ngModel)] = "search"
-	#filterInput>
-
+  <div id = "footer" class = "borders footer">
+    <small>Наші контакти:    +38 044 564 64 73</small>
   </div>
 
-  <app-single-event
-	*ngFor = "let event of calendar | filter: search:searchField"
-	[event] = "event">
-  </app-single-event>
-
- </div>
-
- <div class = "forCreator" *appToggle = "isVisible">
-  <app-event-creator
-	(createdEvent) = "addEvent($event)"></app-event-creator>
-
- </div>
-
- <div name = "footer" class = "borders footer">
-  <small>Наші контакти:    +38 044 564 64 73</small>
- </div>
 </div>

@@ -1,0 +1,38 @@
+<div id = "forCalendar"
+     [ngClass] = "{
+		      forCalendarWide: !isVisible,
+		      forCalendarTite: isVisible
+		     }">
+
+<div id = "filters">
+
+  <button mat-raised-button color = "primary" class = "inLine"
+          [ngStyle] = "{'margin-right': '3px', 'margin-left': '7%'}"
+          (click) = "isVisible = !isVisible">
+    <small *ngIf = "!isVisible">Додати</small>
+    <small *ngIf  = "isVisible">Сховати</small>
+  </button>
+
+  <button mat-raised-button color = "primary" class = "inLine" (click) = "changeSearchField()"><small>Датою</small></button>
+  <button mat-raised-button color = "primary" class = "inLine" (click) = "changeSearchField()"><small>Назвою</small></button>
+  <label for = "filters" class = "inLine" [ngStyle] = "{lineHeight: '3em', marginRight: '5px'}">Пошук за:</label>
+
+  <input matInput name = "search" type = "text" placeholder = "Пошук..."
+         class = "inLine"
+         [(ngModel)] = "search"
+         #filterInput>
+
+</div>
+
+<app-event-row
+  *ngFor = "let event of schedule | filter: search:searchField"
+  [event] = "event">
+</app-event-row>
+
+</div>
+
+<div class = "forCreator" *appToggle = "isVisible">
+  <app-event-creator
+    (createdEvent) = "addEvent($event)"></app-event-creator>
+
+</div>

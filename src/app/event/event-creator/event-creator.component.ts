@@ -1,8 +1,8 @@
 import { Component, ViewChild, Output, EventEmitter, ElementRef, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-import { Event } from '../single-event/event.model';
-import {DateProviderService} from '../services/date-provider.service';
+import { Event } from '../event.model';
+import {DateProviderService} from '../../services/date-provider.service';
 
 @Component({
   selector: 'app-event-creator',
