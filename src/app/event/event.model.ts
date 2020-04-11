@@ -24,6 +24,7 @@ constructor(
   this.town = town;
 }
   get days(): number {
-    return  this.finishDate.getDate() + 1 - this.startDate.getDate();
+  // @ts-ignore
+    return (1 + (this.finishDate - this.startDate) / (1000 * 24 * 60 * 60));
   }
 }
