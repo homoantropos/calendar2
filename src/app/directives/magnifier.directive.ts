@@ -1,7 +1,7 @@
-import { Directive, ElementRef, Renderer2, HostListener, HostBinding, Input } from '@angular/core';
+import { Directive, HostListener, HostBinding, Input } from '@angular/core';
 
 @Directive({
-	selector: '[appMagnifier]'
+  selector: '[appMagnifier]'
 })
 
 export class MagnifierDirective {
@@ -11,21 +11,21 @@ export class MagnifierDirective {
 @HostBinding('style.height') heightMag;
 @HostBinding('style.line-height') lineHeightMag;
 
-	constructor (private el: ElementRef, private r: Renderer2){
-	}
+constructor() {}
 
-	@HostListener('mouseenter') onMouseEnter() {
-		this.fontMag = this.dimensions.fontSize;
-		this.widthMag = this.dimensions.width;
-		this.heightMag = this.dimensions.height;
-		this.lineHeightMag = this.dimensions.lineHeight;
-	}
+@HostListener('mouseenter') onMouseEnter() {
+  this.fontMag = this.dimensions.fontSize;
+  this.widthMag = this.dimensions.width;
+  this.heightMag = this.dimensions.height;
+  this.lineHeightMag = this.dimensions.lineHeight;
+}
 
-	@HostListener('mouseleave') onMouseLEave() {
-		this.fontMag = null;
-		this.widthMag = null;
-		this.widthMag = null;
-		this.heightMag = null;
-		this.lineHeightMag = null;
-	}
+@HostListener('mouseleave') onMouseLEave() {
+  this.fontMag = null;
+  this.widthMag = null;
+  this.widthMag = null;
+  this.heightMag = null;
+  this.lineHeightMag = null;
+}
+
 }

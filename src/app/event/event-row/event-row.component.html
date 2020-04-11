@@ -1,11 +1,11 @@
 <table>
- <tr>
-  <td class = "title" appMagnifier [dimensions] = "{fontSize: '2em', width: '500px', heigth: '50px', 'lineHeight': '1.2em'}">{{ event.title }}</td>
-  <td class = "start" appMagnifier [dimensions] = "{fontSize: '2em', width: '100px', heigth: '50px', 'lineHeight': '1em'}">{{ event.start | date:'dd.MM.yy' }}</td>
-  <td class = "end" appMagnifier [dimensions] = "{fontSize: '2em', width: '100px', heigth: '50px', 'lineHeight': '1em'}">{{ event.end | date:'dd.MM.yy' }}</td>
-  <td class = "days" appMagnifier [dimensions] = "{fontSize: '2em', width: '100px', heigth: '50px', 'lineHeight': '1em'}">{{ event.days | number:'1.0-0'}}</td>
-  <td class = "country"appMagnifier [dimensions] = "{fontSize: '2em', width: '200px', heigth: '50px', 'lineHeight': '1em'}">{{ event.country }}</td>
-  <td class = "region" appMagnifier [dimensions] = "{fontSize: '2em', width: '200px', heigth: '50px', 'lineHeight': '1em'}">{{ event.region}}</td>
-  <td class = "town" appMagnifier [dimensions] = "{fontSize: '2em', width: '200px', heigth: '50px', 'lineHeight': '1em'}">{{ event.town }}</td>
- </tr>
+  <tr>
+    <td class = "title" appMagnifier [dimensions] = "{fontSize: '2em', width: '500px', height: '50px', 'lineHeight': '1.2em'}">{{ event.title }}</td>
+    <td class = "start" appMagnifier [dimensions] = "{fontSize: '2em', width: '100px', height: '50px', 'lineHeight': '1em'}">{{ event.startDate | date:'dd.MM.yy' }}</td>
+    <td class = "end" appMagnifier [dimensions] = "{fontSize: '2em', width: '100px', height: '50px', 'lineHeight': '1em'}">{{ event.finishDate | date:'dd.MM.yy' }}</td>
+    <td class = "days" appMagnifier [dimensions] = "{fontSize: '2em', width: '100px', height: '50px', 'lineHeight': '1em'}">{{ event.duration | number:'1.0-0'}}</td>
+    <td class = "country" appMagnifier [dimensions] = "{fontSize: '2em', width: '200px', height: '50px', 'lineHeight': '1em'}">{{ event.country }}</td>
+    <td class = "region" appMagnifier [dimensions] = "{fontSize: '2em', width: '200px', height: '50px', 'lineHeight': '1em'}">{{ event.region}}</td>
+    <td class = "town" appMagnifier [dimensions] = "{fontSize: '2em', width: '200px', height: '50px', 'lineHeight': '1em'}">{{ event.town }}</td>
+  </tr>
 </table>

@@ -1,6 +1,6 @@
 <div
-	class = "mainContainer"
-	name = "mainContainer"
+	class = "mainContain"
+	id = "mainContainer"
 	*appToggle = "isVisible"
 	[ngClass] = "{valid: eventCreatorForm.valid,
 		      invalid: eventCreatorForm.invalid && eventCreatorForm.touched}">
@@ -12,7 +12,7 @@
 	[formGroup] = "eventCreatorForm"
 	(ngSubmit) = "createEvent(eventCreatorForm.value)">
 
-  <label name = "title" for = "title">Назва:</label>
+  <label for = "title">Назва:</label>
   <input matInput
 	name = "title"
 	id = "title"
@@ -27,7 +27,7 @@
    <small *ngIf = "eventCreatorForm.get('title').errors.required">Поле повинне бути заповнене</small>
   </div>
 
-  <label name = "start" for = "start">Дата початку:</label>
+  <label for = "start">Дата початку:</label>
   <form formGroupName = "start" id = "start">
    <input matInput class = "forDateInput"
 	name = "year"
@@ -67,7 +67,7 @@
 
   </form>
 
-  <label name = "end" for = "end">Дата завершення:</label>
+  <label for = "end">Дата завершення:</label>
   <form formGroupName = "end" id = "end">
 
    <input matInput class = "forDateInput"
@@ -107,7 +107,7 @@
    </div>
   </form>
 
-  <label name = "country" for = "country">Країна проведення:</label>
+  <label for = "country">Країна проведення:</label>
   <input matInput
 	name = "country"
 	id = "country"
@@ -117,7 +117,7 @@
 	formControlName = "country"
   >
 
-  <label name = "region" for = "region">Територія:</label>
+  <label for = "region">Територія:</label>
   <input matInput
 	name = "region"
 	id = "region"
@@ -127,7 +127,7 @@
 	formControlName = "region"
   >
 
-  <label name = "town" for = "town">Місто:</label>
+  <label for = "town">Місто:</label>
   <input matInput
 	name = "town"
 	id = "town"

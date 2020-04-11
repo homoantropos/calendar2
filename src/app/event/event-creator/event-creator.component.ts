@@ -43,10 +43,6 @@ isVisible = true;
         valueF.title,
         this.dateCTR.getDate(valueF.start),
         this.dateCTR.getDate(valueF.end),
-        this.dateCTR.getDuration(
-          this.dateCTR.getDate(valueF.start),
-          this.dateCTR.getDate(valueF.end)
-        ),
         valueF.town,
         valueF.country,
         valueF.region
