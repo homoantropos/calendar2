@@ -18,13 +18,11 @@ constructor(
   this.title = title;
   this.startDate = startDate;
   this.finishDate = finishDate;
-  this.duration = this.days;
+  // @ts-ignore
+  this.duration = (1 + (finishDate - startDate) / (1000 * 24 * 60 * 60));
   this.country = country;
   this.region = region;
   this.town = town;
 }
-  get days(): number {
-  // @ts-ignore
-    return (1 + (this.finishDate - this.startDate) / (1000 * 24 * 60 * 60));
-  }
+
 }
