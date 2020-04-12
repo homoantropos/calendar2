@@ -1,39 +1,39 @@
 table{
-	table-layout: fixed;
 	width: 100%;
-	text-align: center;
-	border-collapse: collapse;
+  table-layout: fixed;
+  border-collapse: collapse;
 }
 
 td {
+  text-align: center;
 	border: solid white 0.1em;
 	border-top: none;
 	padding: 3px;
 }
 
 .title{
-	width: 40%;
+	width: 42%;
 	background-color: burlywood;
 	text-align: left;
 }
 
-.start{
-	width: 9%;
+.startDay{
+	width: 6%;
 	background-color: blanchedalmond;
 }
 
-.end{
-	width: 9%;
+.finishDay{
+	width: 6%;
 	background-color: AntiqueWhite;
 }
 
-.days{
+.duration{
 	width: 5%;
 	background-color: Beige;
 }
 
 .country{
-	width: 9%;
+	width: 14%;
 	background-color: AliceBlue;
 }
 
@@ -43,6 +43,6 @@ td {
 }
 
 .town{
-	width: 14%;
+	width: 13%;
 	background-color: Aquamarine;
 }

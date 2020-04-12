@@ -20,12 +20,12 @@ export class ScheduleComponent implements OnInit {
   }
   get schedule(): Event[] {
     // @ts-ignore
-    return Schedule.schedule.sort((a, b) => a.startDate - b.startDate);
+    return Schedule.schedule.sort((a, b) => a.startDay - b.startDay);
   }
   addEvent(event: Event): void {
     Schedule.schedule.push(event);
     // @ts-ignore
-    Schedule.schedule.sort((a, b) => a.startDate - b.startDate);
+    Schedule.schedule.sort((a, b) => a.startDay - b.startDay);
   }
 
   changeSearchField() {
