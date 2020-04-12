@@ -8,20 +8,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { EventModule } from './event/event.module';
 import { SharedModule } from './shared/shared.module';
-
-import { ScheduleComponent } from './schedule/schedule/schedule.component';
+import { ScheduleModule } from './schedule/schedule.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ScheduleComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     EventModule,
     SharedModule,
+    ScheduleModule,
     AppRoutingModule
   ],
   providers: [],
