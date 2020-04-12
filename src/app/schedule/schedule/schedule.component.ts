@@ -29,8 +29,9 @@ export class ScheduleComponent implements OnInit {
   }
 
   changeSearchField() {
+
     if (this.searchField === 'title') {
-      this.searchField = 'start';
+      this.searchField = 'startDay';
     } else {
       this.searchField = 'title';
     }

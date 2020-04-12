@@ -15,11 +15,11 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
   imports: [
     FormsModule,
     ReactiveFormsModule,
+    MatInputModule,
+    MatButtonModule,
     CommonModule,
     EventRoutingModule,
     SharedModule,
-    MatButtonModule,
-    MatInputModule
   ],
   declarations: [
     EventRowComponent,
@@ -29,7 +29,11 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
   exports: [
     EventRowComponent,
     EventDetailsComponent,
-    EventCreatorComponent
+    EventCreatorComponent,
+    FormsModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatInputModule
   ]
 })
 export class EventModule {}

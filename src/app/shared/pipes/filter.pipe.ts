@@ -7,13 +7,19 @@ import { Event } from '../../event/event.model';
 
 export class FilterPipe implements PipeTransform {
 
-  transform(calendar: Event [], search: string = '', field: string = 'title'): Event [] {
+  transform(schedule: Event [], search: string = '', field: string = 'title'): Event [] {
     if (!search.trim()) {
-      return calendar;
+      return schedule;
     } else {
-      return calendar.filter( event => {
-        return event[field].toLowerCase().includes(search.toLowerCase());
+      if (field === 'title') {
+      return schedule.filter( event => {
+        return event.title.toLowerCase().includes(search.toLowerCase());
       });
+      } else {
+        return schedule.filter( event => {
+          return event.startDay.getMonth().toString().includes(search);
+        });
+      }
     }
   }
 
