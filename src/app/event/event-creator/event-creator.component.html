@@ -27,8 +27,8 @@
    <small *ngIf = "eventCreatorForm.get('title').errors.required">Поле повинне бути заповнене</small>
   </div>
 
-  <label for = "start">Дата початку:</label>
-  <form formGroupName = "start" id = "start">
+  <label for = "startDay">Дата початку:</label>
+  <form formGroupName = "startDay" id = "startDay">
    <input matInput class = "forDateInput"
 	name = "year"
 	type = "text"
@@ -37,8 +37,8 @@
 	formControlName = "year"
    >
    <div class = "error"
-	*ngIf = "eventCreatorForm.get('start').get('year').invalid && eventCreatorForm.get('start').get('year').touched">
-    <small *ngIf = "eventCreatorForm.get('start').get('year').errors.required">Поле повинне бути заповнене</small>
+	*ngIf = "eventCreatorForm.get('startDay').get('year').invalid && eventCreatorForm.get('startDay').get('year').touched">
+    <small *ngIf = "eventCreatorForm.get('startDay').get('year').errors.required">Поле повинне бути заповнене</small>
    </div>
 
    <input matInput class = "forDateInput"
@@ -49,8 +49,8 @@
 	formControlName = "month"
    >
    <div class = "error"
-	*ngIf = "eventCreatorForm.get('start').get('month').invalid && eventCreatorForm.get('start').get('month').touched">
-    <small *ngIf = "eventCreatorForm.get('start').get('month').errors.required">Поле повинне бути заповнене</small>
+	*ngIf = "eventCreatorForm.get('startDay').get('month').invalid && eventCreatorForm.get('startDay').get('month').touched">
+    <small *ngIf = "eventCreatorForm.get('startDay').get('month').errors.required">Поле повинне бути заповнене</small>
    </div>
 
    <input matInput class = "forDateInput"
@@ -61,14 +61,14 @@
 	formControlName = "day"
    >
    <div class = "error"
-	*ngIf = "eventCreatorForm.get('start').get('day').invalid && eventCreatorForm.get('start').get('day').touched">
-    <small *ngIf = "eventCreatorForm.get('start').get('day').errors.required">Поле повинне бути заповнене</small>
+	*ngIf = "eventCreatorForm.get('startDay').get('day').invalid && eventCreatorForm.get('startDay').get('day').touched">
+    <small *ngIf = "eventCreatorForm.get('startDay').get('day').errors.required">Поле повинне бути заповнене</small>
    </div>
 
   </form>
 
-  <label for = "end">Дата завершення:</label>
-  <form formGroupName = "end" id = "end">
+  <label for = "finishDay">Дата завершення:</label>
+  <form formGroupName = "finishDay" id = "finishDay">
 
    <input matInput class = "forDateInput"
 	name = "year"
@@ -78,8 +78,8 @@
 	formControlName = "year"
    >
    <div class = "error"
-	*ngIf = "eventCreatorForm.get('end').get('year').invalid && eventCreatorForm.get('end').get('year').touched">
-    <small *ngIf = "eventCreatorForm.get('end').get('year').errors.required">Поле повинне бути заповнене</small>
+	*ngIf = "eventCreatorForm.get('finishDay').get('year').invalid && eventCreatorForm.get('finishDay').get('year').touched">
+    <small *ngIf = "eventCreatorForm.get('finishDay').get('year').errors.required">Поле повинне бути заповнене</small>
    </div>
 
    <input matInput class = "forDateInput"
@@ -90,8 +90,8 @@
 	formControlName = "month"
    >
    <div class = "error"
-	*ngIf = "eventCreatorForm.get('end').get('month').invalid && eventCreatorForm.get('end').get('month').touched">
-    <small *ngIf = "eventCreatorForm.get('end').get('month').errors.required">Поле повинне бути заповнене</small>
+	*ngIf = "eventCreatorForm.get('finishDay').get('month').invalid && eventCreatorForm.get('finishDay').get('month').touched">
+    <small *ngIf = "eventCreatorForm.get('finishDay').get('month').errors.required">Поле повинне бути заповнене</small>
    </div>
 
    <input matInput class = "forDateInput"
@@ -102,8 +102,8 @@
 	formControlName = "day"
    >
    <div class = "error"
-	*ngIf = "eventCreatorForm.get('end').get('day').invalid && eventCreatorForm.get('end').get('day').touched">
-    <small *ngIf = "eventCreatorForm.get('end').get('day').errors.required">Поле повинне бути заповнене</small>
+	*ngIf = "eventCreatorForm.get('finishDay').get('day').invalid && eventCreatorForm.get('finishDay').get('day').touched">
+    <small *ngIf = "eventCreatorForm.get('finishDay').get('day').errors.required">Поле повинне бути заповнене</small>
    </div>
   </form>
 

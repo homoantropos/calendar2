@@ -2,7 +2,7 @@ import { Component, ViewChild, Output, EventEmitter, ElementRef, OnInit } from '
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { Event } from '../event.model';
-import {DateProviderService} from '../../services/date-provider.service';
+import {DateProviderService} from '../../shared/services/date-provider.service';
 import {Schedule} from '../../schedule/schedule';
 
 @Component({
@@ -42,8 +42,8 @@ isVisible = true;
     this.createdEvent.emit(
       new Event (
         valueF.title,
-        this.dateCTR.getDate(valueF.start),
-        this.dateCTR.getDate(valueF.end),
+        this.dateCTR.getDate(valueF.startDay),
+        this.dateCTR.getDate(valueF.finishDay),
         valueF.town,
         Schedule.countId,
         valueF.country,

@@ -1,43 +1,37 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-import { RouterModule } from '@angular/router';
-import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { EventRowComponent } from './event/event-row/event-row.component';
-import { EventCreatorComponent } from './event/event-creator/event-creator.component';
+import { AppRoutingModule } from './app-routing.module';
+
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { ToggleDirective } from './directives/toggle.directive';
-import { MagnifierDirective } from './directives/magnifier.directive';
-import { FilterPipe } from './pipes/filter.pipe';
+import { EventModule } from './event/event.module';
+import { SharedModule } from './shared/shared.module';
+
 import { ScheduleComponent } from './schedule/schedule/schedule.component';
-import { EventDetailsComponent } from './event/event-details/event-details.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    EventRowComponent,
-    EventCreatorComponent,
-    ToggleDirective,
-    MagnifierDirective,
-    FilterPipe,
-    ScheduleComponent,
-    EventDetailsComponent
+    ScheduleComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
     MatInputModule,
-    BrowserAnimationsModule,
+    EventModule,
+    SharedModule,
     AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
