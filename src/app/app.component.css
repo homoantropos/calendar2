@@ -5,19 +5,10 @@
   font-family: "Roboto Condensed", "Helvetica Neue", sans-serif;
 }
 
-.borders {
-	padding: 5px;
-	background-color: maroon;
-	color: gold;
-}
-
 .header{
 	font-size: 2em;
 	text-align: center;
 	line-height: 1em;
-}
-.active {
-  color: white;
 }
 
 .footer {

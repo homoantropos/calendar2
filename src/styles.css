@@ -7,19 +7,50 @@ body {
 	font-family: "Roboto Condensed", "Helvetica Neue", sans-serif;
 }
 
+.borders {
+  padding: 0.1vw;
+  background-color: maroon;
+  color: gold;
+}
+
 a {
   text-decoration: none;
 }
 
 a:hover {
-  color: #666;
+  color: #555;
 }
+
+.navig{
+  background-color: maroon;
+}
+
+.navig a{
+  color: gold;
+  font-size: 3vh;
+}
+
 
 ul {
   list-style: none;
 }
 
-li {
+.pli {
   margin: 5px;
   display: inline;
+}
+
+.active {
+  color: white;
+}
+
+.homePage {
+  padding-left: 10%;
+  padding-right: 10%;
+  font-size: large;
+  color: brown;
+  background-color: antiquewhite;
+}
+h1, h2, h3, h4, h5 {
+  font-family: "Roboto Condensed", "Helvetica Neue", sans-serif;
 }

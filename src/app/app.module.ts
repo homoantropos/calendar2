@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { EventModule } from './event/event.module';
+import {ErrorsHandlersModule} from './errors-handlers/errors-handlers.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { EventModule } from './event/event.module';
     BrowserAnimationsModule,
     EventModule,
     SharedModule,
+    ErrorsHandlersModule,
     AppRoutingModule
   ],
   providers: [],

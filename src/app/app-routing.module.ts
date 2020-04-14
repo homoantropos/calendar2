@@ -3,9 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import {HomeComponent} from './home/home/home.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent, pathMatch: 'full'},
   {path: 'schedule',
-    loadChildren: () => import('./schedule/schedule.module').then(m => m.ScheduleModule)}
+    loadChildren: () => import('./schedule/schedule.module').then(m => m.ScheduleModule)},
+  {path: 'home', component: HomeComponent},
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: '**', loadChildren: () => import('./errors-handlers/errors-handlers.module').then(m => m.ErrorsHandlersModule)}
 ];
 
 @NgModule({

@@ -2,12 +2,13 @@
   <div id = "header" class = "borders header">КАЛЕНДАРНИЙ ПЛАН<br>
     спортивно-масових та спортивних заходів Комітету з фізичного виховання та спорту
     Міністерства освіти і науки України
+  </div>
+  <div class="navig">
     <ul>
-      <li routerLinkActive = "active" [routerLinkActiveOptions] = "{exact: true}"><a routerLink="/">Головна</a></li>
-      <li routerLinkActive = "active"><a routerLink="/schedule">Календар</a></li>
+      <li class = "pli" routerLinkActive = "active" [routerLinkActiveOptions] = "{exact: true}"><a routerLink="/home">Головна</a></li>
+      <li class = "pli" routerLinkActive = "active"><a routerLink="/schedule">Календар</a></li>
     </ul>
   </div>
-
   <router-outlet></router-outlet>
 
   <div id = "footer" class = "borders footer">
