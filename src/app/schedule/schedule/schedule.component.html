@@ -13,11 +13,16 @@
     <small *ngIf  = "isVisible">Сховати</small>
   </button>
 
-  <button mat-raised-button color = "primary" class = "inLine" (click) = "changeSearchField()"><small>Датою</small></button>
-  <button mat-raised-button color = "primary" class = "inLine" (click) = "changeSearchField()"><small>Назвою</small></button>
+  <button mat-raised-button
+          color = "primary"
+          class = "inLine"
+          (click) = "changeSearchField()">
+    <small>{{ buttonName }}</small>
+  </button>
+
   <label for = "filters" class = "inLine" [ngStyle] = "{lineHeight: '3em', marginRight: '5px'}">Пошук за:</label>
 
-  <input matInput name = "search" type = "text" placeholder = "Пошук..."
+  <input matInput name = "search" type = "text" placeholder = "Пошук за ..."
          class = "inLine"
          [(ngModel)] = "search"
          #filterInput>

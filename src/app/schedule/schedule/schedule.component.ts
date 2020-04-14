@@ -14,6 +14,7 @@ export class ScheduleComponent implements OnInit {
   search = '';
   searchField = 'title';
   @ViewChild('filterInput') filterInputRef: ElementRef;
+  buttonName = 'Датою';
   constructor() { }
 
   ngOnInit(): void {
@@ -32,8 +33,10 @@ export class ScheduleComponent implements OnInit {
 
     if (this.searchField === 'title') {
       this.searchField = 'startDay';
+      this.buttonName = 'Назвою';
     } else {
       this.searchField = 'title';
+      this.buttonName = 'Датою';
     }
     this.filterInputRef.nativeElement.focus();
   }

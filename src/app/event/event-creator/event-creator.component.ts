@@ -18,7 +18,7 @@ eventCreatorForm: FormGroup;
 @Output() createdEvent: EventEmitter<Event>;
 isVisible = true;
 
-  constructor(private dateCTR: DateProviderService) {
+  constructor(private dateProvider: DateProviderService) {
     this.createdEvent = new EventEmitter<Event>();
   }
 
@@ -42,8 +42,8 @@ isVisible = true;
     this.createdEvent.emit(
       new Event (
         valueF.title,
-        this.dateCTR.getDate(valueF.startDay),
-        this.dateCTR.getDate(valueF.finishDay),
+        this.dateProvider.dateProvide(valueF.startDay),
+        this.dateProvider.dateProvide(valueF.finishDay),
         valueF.town,
         Schedule.countId,
         valueF.country,

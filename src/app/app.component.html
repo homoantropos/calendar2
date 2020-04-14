@@ -1,7 +1,12 @@
 <div id = "mainContainer" class = "mainContainer">
   <div id = "header" class = "borders header">КАЛЕНДАРНИЙ ПЛАН<br>
     спортивно-масових та спортивних заходів Комітету з фізичного виховання та спорту
-    Міністерства освіти і науки України</div>
+    Міністерства освіти і науки України
+    <ul>
+      <li routerLinkActive = "active" [routerLinkActiveOptions] = "{exact: true}"><a routerLink="/">Головна</a></li>
+      <li routerLinkActive = "active"><a routerLink="/schedule">Календар</a></li>
+    </ul>
+  </div>
 
   <router-outlet></router-outlet>
 

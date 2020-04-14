@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {HomeComponent} from './home/home/home.component';
 
-import { EventCreatorComponent } from './event/event-creator/event-creator.component';
-import {ScheduleComponent} from './schedule/schedule/schedule.component';
-
-const routs: Routes = [
-  {path: '', component: ScheduleComponent},
-  {path: 'creator', component: EventCreatorComponent}
+const routes: Routes = [
+  {path: '', component: HomeComponent, pathMatch: 'full'},
+  {path: 'schedule',
+    loadChildren: () => import('./schedule/schedule.module').then(m => m.ScheduleModule)}
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routs) ],
+  imports: [ RouterModule.forRoot(routes) ],
   exports: [ RouterModule ]
 })
 
