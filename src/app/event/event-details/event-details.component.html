@@ -1,1 +1,28 @@
-<p>event-details works!</p>
+<div class="eventContainer">
+  <div class = "forLogo">Логотип заходу</div>
+  <div class = "container">
+    <strong>{{event.title | uppercase}}</strong>
+  </div>
+  <div class = "container">
+    початок: {{event.startDay | date: 'dd.MM.yy'}}
+    завершення: {{event.finishDay | date: 'dd.MM.yy'}}
+    тривалість: {{event.duration | number:'1.0-0'}} днів
+  </div>
+  <div class="container">
+    місто: {{event.town}}
+  </div>
+  <div class="container">
+    країна: {{event.country}}
+  </div>
+  <div class="container">
+    регіон: {{event.region}}
+  </div>
+  <div class="container">
+    спортивний комплекс: {{event.sportHallTitle}}
+  </div>
+  <div class = "container">
+    контактна особа: _____
+    телефон: _____________
+    емейл: _______________
+  </div>
+</div>

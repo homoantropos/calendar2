@@ -8,12 +8,13 @@ import { HomeComponent } from './home/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { EventModule } from './event/event.module';
-import {ErrorsHandlersModule} from './errors-handlers/errors-handlers.module';
+import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +22,6 @@ import {ErrorsHandlersModule} from './errors-handlers/errors-handlers.module';
     BrowserAnimationsModule,
     EventModule,
     SharedModule,
-    ErrorsHandlersModule,
     AppRoutingModule
   ],
   providers: [],

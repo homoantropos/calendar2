@@ -1,7 +1,6 @@
 .mainContainer {
 	margin-left: 5%;
 	margin-right: 5%;
-	padding: 10px;
   font-family: "Roboto Condensed", "Helvetica Neue", sans-serif;
 }
 
@@ -14,4 +13,11 @@
 .footer {
 	padding-left: 80%;
 	clear: both;
+}
+
+
+button {
+  margin-top: 3px;
+  margin-bottom: 3px;
+  border-radius: unset;
 }

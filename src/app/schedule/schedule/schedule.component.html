@@ -28,10 +28,11 @@
          #filterInput>
 
 </div>
-
 <event-row
   *ngFor = "let event of schedule | filter: search:searchField"
-  [event] = "event">
+  [event] = "event"
+  (click) = "renderEventDetails(event)"
+>
 </event-row>
 
 </div>

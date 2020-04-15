@@ -7,19 +7,15 @@ import { EventDetailsComponent } from './event-details/event-details.component';
 import { EventRoutingModule } from './event-routing.module';
 import { EventCreatorComponent } from './event-creator/event-creator.component';
 import { SharedModule } from '../shared/shared.module';
-import {MatButtonModule} from '@angular/material/button';
-import {MatInputModule} from '@angular/material/input';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
     FormsModule,
     ReactiveFormsModule,
-    MatInputModule,
-    MatButtonModule,
     CommonModule,
     EventRoutingModule,
-    SharedModule,
+    SharedModule
   ],
   declarations: [
     EventRowComponent,
@@ -29,11 +25,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
   exports: [
     EventRowComponent,
     EventDetailsComponent,
-    EventCreatorComponent,
-    FormsModule,
-    ReactiveFormsModule,
-    MatButtonModule,
-    MatInputModule
+    EventCreatorComponent
   ]
 })
 export class EventModule {}

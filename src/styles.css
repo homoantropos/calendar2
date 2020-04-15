@@ -22,22 +22,24 @@ a:hover {
 }
 
 .navig{
-  background-color: maroon;
+  border: solid maroon 1px;
+  width: 100%;
+  float: right;
 }
 
 .navig a{
-  color: gold;
+  color: maroon;
   font-size: 3vh;
 }
-
 
 ul {
   list-style: none;
 }
 
 .pli {
-  margin: 5px;
   display: inline;
+  margin-right: 5px;
+  float: right;
 }
 
 .active {
@@ -51,6 +53,7 @@ ul {
   color: brown;
   background-color: antiquewhite;
 }
+
 h1, h2, h3, h4, h5 {
   font-family: "Roboto Condensed", "Helvetica Neue", sans-serif;
 }

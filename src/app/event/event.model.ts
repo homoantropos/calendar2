@@ -6,6 +6,7 @@ export class Event {
   country?: string;
   region?: string;
   town: string;
+  sportHallTitle?: string;
   id: number;
 
 constructor(
@@ -15,7 +16,8 @@ constructor(
   town: string,
   id: number,
   country?: string,
-  region?: string
+  region?: string,
+  sportHallTitle?: string
 ) {
   this.title = title;
   this.startDay = startDay;
@@ -25,6 +27,7 @@ constructor(
   this.country = country;
   this.region = region;
   this.town = town;
+  this.sportHallTitle = sportHallTitle;
   this.id = id;
 }
 

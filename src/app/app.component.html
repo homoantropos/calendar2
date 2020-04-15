@@ -5,14 +5,16 @@
   </div>
   <div class="navig">
     <ul>
-      <li class = "pli" routerLinkActive = "active" [routerLinkActiveOptions] = "{exact: true}"><a routerLink="/home">Головна</a></li>
+      <li class = "pli"><button mat-raised-button color="primary">LogOut</button></li>
+      <li class = "pli"><button mat-raised-button color="primary">LogIn</button></li>
       <li class = "pli" routerLinkActive = "active"><a routerLink="/schedule">Календар</a></li>
+      <li class = "pli" routerLinkActive = "active" [routerLinkActiveOptions] = "{exact: true}"><a routerLink="/home">Головна</a></li>
     </ul>
   </div>
   <router-outlet></router-outlet>
 
   <div id = "footer" class = "borders footer">
-    <small>Наші контакти:    +38 044 564 64 73</small>
+    <small>Наші контакти:    +38 044 564 89 ..</small>
   </div>
 
 </div>

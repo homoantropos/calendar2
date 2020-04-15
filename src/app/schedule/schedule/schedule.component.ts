@@ -1,6 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { Schedule } from '../schedule';
 import { Event } from '../../event/event.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-schedule',
@@ -15,7 +16,9 @@ export class ScheduleComponent implements OnInit {
   searchField = 'title';
   @ViewChild('filterInput') filterInputRef: ElementRef;
   buttonName = 'Датою';
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
@@ -39,5 +42,9 @@ export class ScheduleComponent implements OnInit {
       this.buttonName = 'Датою';
     }
     this.filterInputRef.nativeElement.focus();
+  }
+
+  renderEventDetails(event: Event) {
+    this.router.navigateByUrl(`/schedule/${event.id}`);
   }
 }

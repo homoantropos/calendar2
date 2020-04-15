@@ -27,9 +27,3 @@ input {
   width: 20%;
   float: left;
 }
-
-button {
-  margin-top: 3px;
-  margin-bottom: 3px;
-  border-radius: unset;
-}
