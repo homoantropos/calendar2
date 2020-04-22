@@ -4,10 +4,20 @@
   font-family: "Roboto Condensed", "Helvetica Neue", sans-serif;
 }
 
+.navig{
+  background-color: maroon;
+  width: 100%;
+  float: right;
+}
+
+.navig a{
+  color: gold;
+  font-size: 3vh;
+}
 .header{
 	font-size: 2em;
 	text-align: center;
-	line-height: 1em;
+	line-height: 1.2em;
 }
 
 .footer {
@@ -15,9 +25,8 @@
 	clear: both;
 }
 
-
 button {
-  margin-top: 3px;
   margin-bottom: 3px;
+  margin-top: -20px;
   border-radius: unset;
 }

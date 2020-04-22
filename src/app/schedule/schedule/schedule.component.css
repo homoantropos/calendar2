@@ -4,9 +4,11 @@
 
 .forCalendarWide {
   float: left;
+  background-color: antiquewhite;
 }
 
 .forCalendarTite {
+  background-color: antiquewhite;
   float: left;
   width: 80%;
 }
@@ -26,4 +28,10 @@ input {
   height: 30px;
   width: 20%;
   float: left;
+}
+
+button {
+  margin-bottom: 3px;
+  margin-top: 3px;
+  border-radius: unset;
 }

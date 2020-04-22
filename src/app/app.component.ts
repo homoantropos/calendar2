@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {AuthService} from './auth-guard/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +8,10 @@ import {Component} from '@angular/core';
 })
 
 export class AppComponent {
-
   title = 'calendar2';
-
-  constructor() {	}
+  constructor(
+    public auth: AuthService
+  ) {
+  }
 
 }

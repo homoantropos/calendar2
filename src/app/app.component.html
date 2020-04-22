@@ -1,16 +1,18 @@
 <div id = "mainContainer" class = "mainContainer">
-  <div id = "header" class = "borders header">КАЛЕНДАРНИЙ ПЛАН<br>
-    спортивно-масових та спортивних заходів Комітету з фізичного виховання та спорту
-    Міністерства освіти і науки України
+  <div id = "header" class = "borders header">КОМІТЕТ З ФІЗИЧНОГО ВИХОВАННЯ ТА СПОРТУ
+    МІНІСТЕРСТВА ОСВІТИ І НАУКИ УКРАЇНИ<br>
+    спортивно-масові та спортивні заходи серед учнів та студентів
   </div>
-  <div class="navig">
+  <nav class="navig">
     <ul>
-      <li class = "pli"><button mat-raised-button color="primary">LogOut</button></li>
-      <li class = "pli"><button mat-raised-button color="primary">LogIn</button></li>
+      <li class = "pli"><button mat-raised-button color="primary"
+      (click) = "auth.logOut()">LogOut</button></li>
+      <li class = "pli"><button mat-raised-button color="primary"
+      (click) = "auth.logIn()">LogIn</button></li>
       <li class = "pli" routerLinkActive = "active"><a routerLink="/schedule">Календар</a></li>
       <li class = "pli" routerLinkActive = "active" [routerLinkActiveOptions] = "{exact: true}"><a routerLink="/home">Головна</a></li>
     </ul>
-  </div>
+  </nav>
   <router-outlet></router-outlet>
 
   <div id = "footer" class = "borders footer">
