@@ -3,16 +3,7 @@
     МІНІСТЕРСТВА ОСВІТИ І НАУКИ УКРАЇНИ<br>
     спортивно-масові та спортивні заходи серед учнів та студентів
   </div>
-  <nav class="navig">
-    <ul>
-      <li class = "pli"><button mat-raised-button color="primary"
-      (click) = "auth.logOut()">LogOut</button></li>
-      <li class = "pli"><button mat-raised-button color="primary"
-      (click) = "auth.logIn()">LogIn</button></li>
-      <li class = "pli" routerLinkActive = "active"><a routerLink="/schedule">Календар</a></li>
-      <li class = "pli" routerLinkActive = "active" [routerLinkActiveOptions] = "{exact: true}"><a routerLink="/home">Головна</a></li>
-    </ul>
-  </nav>
+
   <router-outlet></router-outlet>
 
   <div id = "footer" class = "borders footer">

@@ -1,7 +1,7 @@
 import { Component, ViewChild, Output, EventEmitter, ElementRef, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-import { Event } from '../event.model';
+import { Event } from '../../main-layout/components/event/event.model';
 import {DateProviderService} from '../../shared/services/date-provider.service';
 import {Schedule} from '../../schedule/schedule';
 

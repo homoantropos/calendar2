@@ -1,0 +1,9 @@
+<nav class="navig">
+  <ul>
+    <li class = "pli" (click)="logOut($event)"><a href="#">Вийти</a></li>
+    <li class = "pli" routerLinkActive = "active"><a routerLink="/schedule">Календар</a></li>
+    <li class = "pli" routerLinkActive = "active" [routerLinkActiveOptions] = "{exact: true}"><a routerLink="/">Головна</a></li>
+  </ul>
+</nav>
+<router-outlet></router-outlet>
+

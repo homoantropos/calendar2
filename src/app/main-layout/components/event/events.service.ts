@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Event } from './event.model';
-import { Schedule } from '../schedule/schedule';
+import { Schedule } from '../../../schedule/schedule';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 
 export class EventsService {
   getEventById(id: number | string): Event {

@@ -1,6 +1,6 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { Schedule } from '../schedule';
-import { Event } from '../../event/event.model';
+import { Event } from '../../main-layout/components/event/event.model';
 import {Router} from '@angular/router';
 
 @Component({

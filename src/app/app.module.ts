@@ -1,30 +1,40 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { AppComponent } from './app.component';
 import {FormsModule} from '@angular/forms';
-import { HomeComponent } from './home/home/home.component';
+
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
-import { EventModule } from './event/event.module';
+
+import { AppComponent } from './app.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import {ScheduleComponent} from './schedule/schedule/schedule.component';
+import { MainLayoutPageComponent } from './main-layout/components/main-layout-page/main-layout-page.component';
+import {EventRowComponent} from './main-layout/components/event/event-row/event-row.component';
+import {EventDetailsComponent} from './main-layout/components/event/event-details/event-details.component';
+import {HomePageComponent} from './home-page/home-page.component';
+import {EventsService} from './main-layout/components/event/events.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    PageNotFoundComponent
+    HomePageComponent,
+    PageNotFoundComponent,
+    ScheduleComponent,
+    EventRowComponent,
+    EventDetailsComponent,
+    MainLayoutPageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
-    EventModule,
     SharedModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    EventsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

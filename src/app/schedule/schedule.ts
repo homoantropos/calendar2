@@ -1,4 +1,4 @@
-import { Event } from '../event/event.model';
+import { Event } from '../main-layout/components/event/event.model';
 
 export class Schedule {
   static schedule: Event[] = [

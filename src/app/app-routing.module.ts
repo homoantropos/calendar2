@@ -1,20 +1,27 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import {HomeComponent} from './home/home/home.component';
+import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
+import {HomePageComponent} from './home-page/home-page.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
-import {AuthGuard} from './auth-guard/auth.guard';
+import {AuthGuard} from './admin/auth-guard/auth.guard';
+import {ScheduleComponent} from './schedule/schedule/schedule.component';
+import {MainLayoutPageComponent} from './main-layout/components/main-layout-page/main-layout-page.component';
+import {EventDetailsComponent} from './main-layout/components/event/event-details/event-details.component';
 
 const routes: Routes = [
-  {path: 'schedule',
-    loadChildren: () => import('./schedule/schedule.module').then(m => m.ScheduleModule),
-  canActivate: [AuthGuard]},
-  {path: 'home', component: HomeComponent},
-  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: '', component: MainLayoutPageComponent, children: [
+      {path: '', redirectTo: '/', pathMatch: 'full'},
+      {path: '', component: HomePageComponent},
+      {path: 'schedule', component: ScheduleComponent},
+      {path: 'schedule/:id', component: EventDetailsComponent}
+    ]},
+  {path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)},
   {path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
+  imports: [ RouterModule.forRoot(routes, {
+    preloadingStrategy: PreloadAllModules
+  }) ],
   exports: [ RouterModule ]
 })
 

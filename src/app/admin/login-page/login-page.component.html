@@ -1,0 +1,27 @@
+<form class = "loginForm"
+      [ngClass]="{valid: loginform.touched && loginform.valid,
+  invalid: loginform.touched && loginform.invalid}"
+  [formGroup] = "loginform"
+  (ngSubmit) = "submit()"
+>
+  <h2>Увійдіть</h2>
+
+    <label for="email">Email:</label>
+    <input id="email" type="text" name="email" placeholder="введіть емейл..." formControlName="email">
+    <div *ngIf="loginform.get('email').touched && loginform.get('email').invalid">
+      <small class="error" *ngIf="loginform.get('email').errors.required">поле повинно бути заповнене</small>
+      <small class="error" *ngIf="loginform.get('email').errors.email">введіть коректний емейл</small>
+    </div>
+
+    <label for="password">Password::</label>
+    <input id="password" type="text" name="password" placeholder="введіть пароль..." formControlName="password">
+    <div *ngIf="loginform.get('password').touched && loginform.get('password').invalid">
+      <small class="error" *ngIf="loginform.get('password').errors.required">поле повинно бути заповнене</small>
+      <small class="error" *ngIf="loginform.get('password').errors.minlength">
+        пароль повинен складатися з {{loginform.get('password').errors.minlength.requiredLength}} символів
+      ви ввели {{loginform.get('password').errors.minlength.actualLength}}</small>
+    </div>
+
+    <button mat-raised-button type="submit" [disabled]="loginform.invalid || submitted">Увійти</button>
+
+</form>
