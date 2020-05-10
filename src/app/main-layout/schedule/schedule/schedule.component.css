@@ -1,0 +1,83 @@
+.filters {
+  max-height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1vw 0 1vw;
+}
+
+.filters li {
+  display: inline-flex;
+  margin-right: 5px;
+}
+
+.search {
+  float: right;
+}
+
+.forCalendarWide {
+  float: left;
+  background-color: antiquewhite;
+}
+
+.forCalendarTight {
+  background-color: antiquewhite;
+  float: left;
+  width: 80%;
+}
+
+.forCreator {
+  width: 20%;
+  float: right;
+}
+
+table{
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: center;
+  border: solid white 0.1em;
+  border-top: none;
+  padding: 3px;
+}
+
+.title{
+  width: 42%;
+  background-color: burlywood;
+}
+
+.startDay{
+  width: 6%;
+  background-color: blanchedalmond;
+}
+
+.finishDay{
+  width: 6%;
+  background-color: AntiqueWhite;
+}
+
+.duration{
+  width: 5%;
+  background-color: Beige;
+}
+
+.country{
+  width: 14%;
+  background-color: AliceBlue;
+}
+
+.region{
+  width: 14%;
+  background-color: Azure;
+}
+
+.town{
+  width: 13%;
+  background-color: Aquamarine;
+}
+
+
+

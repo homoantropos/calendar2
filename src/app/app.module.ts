@@ -7,12 +7,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
-import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
-import {ScheduleComponent} from './schedule/schedule/schedule.component';
+import {PageNotFoundComponent} from './main-layout/page-not-found/page-not-found.component';
+import {ScheduleComponent} from './main-layout/schedule/schedule/schedule.component';
 import { MainLayoutPageComponent } from './main-layout/components/main-layout-page/main-layout-page.component';
 import {EventRowComponent} from './main-layout/components/event/event-row/event-row.component';
 import {EventDetailsComponent} from './main-layout/components/event/event-details/event-details.component';
-import {HomePageComponent} from './home-page/home-page.component';
+import {HomePageComponent} from './main-layout/home-page/home-page.component';
 import {EventsService} from './main-layout/components/event/events.service';
 
 @NgModule({

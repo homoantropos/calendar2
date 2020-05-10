@@ -4,43 +4,61 @@ html, body {
 
 body {
 	margin: 0;
-	font-family: "Roboto Condensed", "Helvetica Neue", sans-serif;
+  font-family: "Roboto Condensed", "Helvetica Neue", sans-serif;
+}
+
+.mainHeader {
+  padding-top: 1vw;
+  background-color: maroon;
+  color: gold;
+  margin-bottom: unset;
+}
+
+.mainHeader h1{
+  font-family: Oswald, "Roboto Condensed", Roboto, "Helvetica Neue", sans-serif;
+  align-items: center;
+  text-align: center;
+  line-height: 1.2em;
+}
+
+.footer {
+  padding-top: 1vw;
+  padding-left: 80%;
+  background-color: maroon;
+  color: gold;
+  clear: both;
 }
 
 .navig{
-  background-color: maroon;
-  width: 100%;
-  float: right;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-height: 40px;
+  background-color: rgba(212, 175, 55, 0.2);
 }
 
 .navig a{
   color: gold;
-  font-size: 3vh;
 }
 
-.borders {
-  padding: 0.1vw;
-  background-color: maroon;
-  color: gold;
+.navig li {
+  display: inline-flex;
+  margin-right: 5px;
+}
+
+.navig h1, h2 {
+  font-family: "Roboto Condensed", Roboto, "Helvetica Neue", sans-serif;
+  color: white;
+  padding-top: 1vw;
 }
 
 a {
   text-decoration: none;
+  color: gold;
 }
 
 a:hover {
-  color: #555;
-}
-
-
-ul {
-  list-style: none;
-}
-
-.pli {
-  display: inline;
-  margin-right: 5px;
-  float: right;
+  color: white;
 }
 
 .active {
@@ -50,21 +68,19 @@ ul {
 .homePage {
   padding-left: 10%;
   padding-right: 10%;
+  font-family: "Roboto Condensed", Roboto, "Helvetica Neue", sans-serif;
   font-size: large;
   color: brown;
   background-color: antiquewhite;
 }
 
-h1, h2, h3, h4, h5 {
-  font-family: "Roboto Condensed", "Helvetica Neue", sans-serif;
+.homePage a {
+
 }
 
-.mainContain {
-  padding: 5px 9px 5px 5px;
-}
-
-.header {
-  font-size: 2em;
+.homePage h2 {
+  font-family: "Roboto Condensed", Roboto, "Helvetica Neue", sans-serif;
+  color: brown;
 }
 
 .valid {
@@ -93,7 +109,6 @@ input.ng-valid.ng-touched {border: solid green 1px}
 }
 
 button {
-  margin-top: 3px;
-  margin-bottom: 3px;
+  margin: 3px 0 3px 0;
   border-radius: unset;
 }

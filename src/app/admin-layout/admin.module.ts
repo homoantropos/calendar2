@@ -8,6 +8,7 @@ import {AdminRoutingModule} from './admin-routing.module';
 import { EventEditorPageComponent } from './event-editor-page/event-editor-page.component';
 import {AuthService} from './auth-guard/auth.service';
 import { DashboardPageComponent } from './dashboard-page/dashboard-page.component';
+import {AuthGuard} from './auth-guard/auth.guard';
 
 @NgModule({
   imports: [
@@ -24,7 +25,9 @@ import { DashboardPageComponent } from './dashboard-page/dashboard-page.componen
     EventEditorPageComponent,
     DashboardPageComponent
   ],
-  providers: [AuthService]
+  providers: [
+    AuthGuard
+  ]
 })
 
 export class AdminModule {}

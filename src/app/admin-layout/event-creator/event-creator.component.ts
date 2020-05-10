@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { Event } from '../../main-layout/components/event/event.model';
 import {DateProviderService} from '../../shared/services/date-provider.service';
-import {Schedule} from '../../schedule/schedule';
+import {Schedule} from '../../main-layout/schedule/schedule';
 
 @Component({
   selector: 'app-event-creator',
@@ -15,12 +15,9 @@ export class EventCreatorComponent implements OnInit {
 
 eventCreatorForm: FormGroup;
 @ViewChild('titleInput') elTitle: ElementRef;
-@Output() createdEvent: EventEmitter<Event>;
 isVisible = true;
 
-  constructor(private dateProvider: DateProviderService) {
-    this.createdEvent = new EventEmitter<Event>();
-  }
+  constructor(private dateProvider: DateProviderService) { }
 
   ngOnInit(): void {
     this.eventCreatorForm = new FormGroup ({
@@ -39,8 +36,7 @@ isVisible = true;
     });
   }
   createEvent(valueF: any) {
-    this.createdEvent.emit(
-      new Event (
+    const event = new Event (
         valueF.title,
         this.dateProvider.dateProvide(valueF.startDay),
         this.dateProvider.dateProvide(valueF.finishDay),
@@ -48,9 +44,11 @@ isVisible = true;
         Schedule.countId,
         valueF.country,
         valueF.region
-      )
-    );
+      );
+    Schedule.schedule.push(event);
     Schedule.countId = Schedule.countId++;
+    // @ts-ignore
+    Schedule.schedule.sort((a, b) => a.startDay - b.startDay);
     this.eventCreatorForm.reset();
     this.elTitle.nativeElement.focus();
   }

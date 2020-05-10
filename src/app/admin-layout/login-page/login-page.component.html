@@ -6,6 +6,14 @@
 >
   <h2>Увійдіть</h2>
 
+  <div class="alert danger" *ngIf="auth.error$ | async as error">
+    {{ error }}
+  </div>
+
+  <div class="alert info" *ngIf="message">
+    {{ message }}
+  </div>
+
     <label for="email">Email:</label>
     <input id="email" type="text" name="email" placeholder="введіть емейл..." formControlName="email">
     <div *ngIf="loginform.get('email').touched && loginform.get('email').invalid">

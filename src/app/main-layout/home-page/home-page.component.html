@@ -1,9 +1,18 @@
-<nav class="navig">
-  <ul>
-    <li class = "pli" routerLinkActive = "active"><a routerLink="/schedule">Календар</a></li>
-    <li class = "pli" routerLinkActive = "active" [routerLinkActiveOptions] = "{exact: true}"><a routerLink="/">Головна</a></li>
-  </ul>
-</nav>
+<header class="mainHeader">
+  <h1>
+    <a routerLink="/">
+      КОМІТЕТ З ФІЗИЧНОГО ВИХОВАННЯ ТА СПОРТУ МІНІСТЕРСТВА ОСВІТИ І НАУКИ УКРАЇНИ<br>
+      спортивно-масові та спортивні заходи серед учнів та студентів
+    </a>
+  </h1>
+  <nav class="navig">
+    <ul>
+      <li routerLinkActive = "active" [routerLinkActiveOptions] = "{exact: true}"><a routerLink="/">Головна</a></li>
+      <li routerLinkActive = "active"><a routerLink="/schedule">Календар</a></li>
+    </ul>
+  </nav>
+</header>
+
 <div class="homePage">
   <h2>Вітаємо!</h2>
   <p>

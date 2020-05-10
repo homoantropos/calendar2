@@ -1,7 +1,8 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { Schedule } from '../schedule';
-import { Event } from '../../main-layout/components/event/event.model';
+import { Event } from '../../components/event/event.model';
 import {Router} from '@angular/router';
+import {AuthService} from '../../../admin-layout/auth-guard/auth.service';
 
 @Component({
   selector: 'app-schedule',
@@ -16,8 +17,11 @@ export class ScheduleComponent implements OnInit {
   searchField = 'title';
   @ViewChild('filterInput') filterInputRef: ElementRef;
   buttonName = 'Датою';
+  placeHolderName = 'назвою...';
+
   constructor(
-    private router: Router
+    private router: Router,
+    public auth: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -26,20 +30,16 @@ export class ScheduleComponent implements OnInit {
     // @ts-ignore
     return Schedule.schedule.sort((a, b) => a.startDay - b.startDay);
   }
-  addEvent(event: Event): void {
-    Schedule.schedule.push(event);
-    // @ts-ignore
-    Schedule.schedule.sort((a, b) => a.startDay - b.startDay);
-  }
 
   changeSearchField() {
-
     if (this.searchField === 'title') {
       this.searchField = 'startDay';
       this.buttonName = 'Назвою';
+      this.placeHolderName = 'датою...';
     } else {
       this.searchField = 'title';
       this.buttonName = 'Датою';
+      this.placeHolderName = 'назвою...';
     }
     this.filterInputRef.nativeElement.focus();
   }

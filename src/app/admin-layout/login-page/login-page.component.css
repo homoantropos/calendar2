@@ -6,3 +6,15 @@
 .loginForm, button {
   margin-top: 1vw;
 }
+
+.alert {
+  color: white;
+}
+
+.danger {
+  background-color: red;
+}
+
+.info {
+  background-color: grey;
+}
