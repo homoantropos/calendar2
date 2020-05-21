@@ -19,8 +19,6 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.pSub = this.eventsService.getAll().subscribe((schedule) => {
       Schedule.schedule = schedule;
-      // @ts-ignore
-      Schedule.schedule.sort((a, b) => a.startDay - b.startDay);
     });
   }
 

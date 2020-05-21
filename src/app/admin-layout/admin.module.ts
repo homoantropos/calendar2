@@ -6,10 +6,8 @@ import { AdminLayoutComponent } from './components/admin-layout/admin-layout.com
 import { LoginPageComponent } from './login-page/login-page.component';
 import {AdminRoutingModule} from './admin-routing.module';
 import { EventEditorPageComponent } from './event-editor-page/event-editor-page.component';
-import {AuthService} from './auth-guard/auth.service';
 import { DashboardPageComponent } from './dashboard-page/dashboard-page.component';
 import {AuthGuard} from './auth-guard/auth.guard';
-import { AlertComponent } from './components/alert/alert.component';
 
 @NgModule({
   imports: [
@@ -24,8 +22,7 @@ import { AlertComponent } from './components/alert/alert.component';
     AdminLayoutComponent,
     LoginPageComponent,
     EventEditorPageComponent,
-    DashboardPageComponent,
-    AlertComponent
+    DashboardPageComponent
   ],
   providers: [
     AuthGuard

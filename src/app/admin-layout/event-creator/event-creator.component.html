@@ -16,6 +16,7 @@
       type = "text"
       title = "Введіть назву заходу."
       formControlName = "title"
+      #titleInput
     >
     <div class = "error"
          *ngIf = "eventCreatorForm.get('title').invalid && eventCreatorForm.get('title').touched">
@@ -24,7 +25,6 @@
     <div>
       <label for = "startDay">Дата початку: </label>
       <input class="forDateInput" id="startDay" matInput [matDatepicker]="pickerStartDay" formControlName="startDay" type="date">
-      <mat-datepicker-toggle matPrefix [for]="pickerStartDay"></mat-datepicker-toggle>
       <mat-datepicker #pickerStartDay></mat-datepicker>
 
       <div class = "error"
@@ -34,7 +34,6 @@
 
       <label for = "finishDay">Дата завершення: </label>
       <input class="forDateInput" id="finishDay" matInput [matDatepicker]="pickerFinishDay" formControlName="finishDay" type="date">
-      <mat-datepicker-toggle matPrefix [for]="pickerFinishDay"></mat-datepicker-toggle>
       <mat-datepicker #pickerFinishDay></mat-datepicker>
 
       <div class = "error"
@@ -52,6 +51,10 @@
            placeholder = "Країна..."
            formControlName = "country"
     >
+    <div class = "error"
+         *ngIf = "eventCreatorForm.get('country').invalid && eventCreatorForm.get('country').touched">
+      <small *ngIf = "eventCreatorForm.get('country').errors.required">Поле повинне бути заповнене</small>
+    </div>
 
     <label for = "region">Територія:</label>
     <input matInput
@@ -62,6 +65,10 @@
            placeholder = "Територія..."
            formControlName = "region"
     >
+    <div class = "error"
+         *ngIf = "eventCreatorForm.get('region').invalid && eventCreatorForm.get('region').touched">
+      <small *ngIf = "eventCreatorForm.get('region').errors.required">Поле повинне бути заповнене</small>
+    </div>
 
     <label for = "town">Місто:</label>
     <input matInput
@@ -83,7 +90,7 @@
       type = "submit"
       [disabled] = "eventCreatorForm.invalid || submitted"
     >
-      Оновити
+      Додати
     </button>
 
   </form>

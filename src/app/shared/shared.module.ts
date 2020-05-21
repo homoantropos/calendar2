@@ -13,6 +13,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {SearchPipe} from './pipes/search.pipe';
+import {AlertComponent} from './alert/alert.component';
+import {MatIcon} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import {SearchPipe} from './pipes/search.pipe';
     MagnifierDirective,
     FilterPipe,
     SearchPipe,
-    EventCreatorComponent
+    EventCreatorComponent,
+    AlertComponent,
   ],
   imports: [
     FormsModule,
@@ -43,7 +46,8 @@ import {SearchPipe} from './pipes/search.pipe';
     MagnifierDirective,
     FilterPipe,
     SearchPipe,
-    EventCreatorComponent
+    EventCreatorComponent,
+    AlertComponent
   ]
 })
 

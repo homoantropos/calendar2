@@ -4,6 +4,7 @@ import { Event } from '../../main-layout/components/event/event.model';
 import {DateProviderService} from '../../shared/services/date-provider.service';
 import {Schedule} from '../../main-layout/schedule/schedule';
 import {EventsService} from '../../main-layout/components/event/events.service';
+import {AlertService} from '../services/alert.service';
 
 @Component({
   selector: 'app-event-creator',
@@ -19,7 +20,9 @@ export class EventCreatorComponent implements OnInit {
 
   constructor(
     private dateProvider: DateProviderService,
-    private eventService: EventsService) { }
+    private eventService: EventsService,
+    private alertService: AlertService
+  ) { }
 
   ngOnInit(): void {
     this.eventCreatorForm = new FormGroup ({
@@ -27,8 +30,8 @@ export class EventCreatorComponent implements OnInit {
       startDay: new FormControl('', Validators.required),
       finishDay: new FormControl('', Validators.required),
       town: new FormControl('', Validators.required),
-      country: new FormControl(''),
-      region: new FormControl('')
+      country: new FormControl('', Validators.required),
+      region: new FormControl('', Validators.required)
     });
   }
   createEvent(valueF: any) {
@@ -39,11 +42,9 @@ export class EventCreatorComponent implements OnInit {
     const event = (valueF as Event);
     event.duration = 1 + ((valueF.finishDay - valueF.startDay) / (1000 * 60 * 60 * 24));
     this.eventService.add(event).subscribe(() => {
-      Schedule.schedule.push(event);
-      // @ts-ignore
-      Schedule.schedule.sort((a, b) => a.startDay - b.startDay);
       this.eventCreatorForm.reset();
       this.elTitle.nativeElement.focus();
+      this.alertService.success('Захід успішно додано!');
       this.submitted = false;
     }, () => {
       this.submitted = false;

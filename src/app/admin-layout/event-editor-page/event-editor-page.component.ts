@@ -1,10 +1,11 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {EventsService} from '../../main-layout/components/event/events.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {ActivatedRoute, Params} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {map, switchMap} from 'rxjs/operators';
 import {Event} from '../../main-layout/components/event/event.model';
 import {Subscription} from 'rxjs';
+import {AlertService} from '../services/alert.service';
 
 @Component({
   selector: 'app-edit-event-page',
@@ -20,7 +21,9 @@ export class EventEditorPageComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
-    private eventsService: EventsService
+    private router: Router,
+    private eventsService: EventsService,
+    private alertService: AlertService
   ) { }
 
   ngOnInit() {
@@ -54,12 +57,16 @@ export class EventEditorPageComponent implements OnInit, OnDestroy {
         map (
           (event: Event) => {
             return {
-              ...event
+              ...event,
+              duration: ev.duration,
+              id: ev.id
             };
           }
           )
       ).subscribe(() => {
-      this.submitted = false;
+        this.router.navigate(['/admin', 'dashboard']);
+        this.alertService.success('Інформацію про захід оновлено!');
+        this.submitted = false;
     });
     }
   }

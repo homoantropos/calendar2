@@ -31,10 +31,25 @@
         <th class = "town">Місто</th>
       </tr>
     </thead>
+    <tr>
+      <td class = "title"><button class="searhhBtn" (click)="sortByTitle()" [innerHTML]="buttonArrow"></button></td>
+      <td class = "startDay"><button class="searhhBtn" (click)="sortByStartDay()" [innerHTML]="buttonArrow"></button></td>
+      <td class = "finishDay"><button class="searhhBtn" (click)="sortByFinishDay()" [innerHTML]="buttonArrow"></button></td>
+      <td class = "duration"><button class="searhhBtn" (click)="sortByDuration()" [innerHTML]="buttonArrow"></button></td>
+      <td class = "country"><button class="searhhBtn" (click)="sortByCountry()" [innerHTML]="buttonArrow"></button></td>
+      <td class = "region"><button class="searhhBtn" (click)="sortByRegion()" [innerHTML]="buttonArrow"></button></td>
+      <td class = "town"><button class="searhhBtn" (click)="sortByTown()" [innerHTML]="buttonArrow"></button></td>
+    </tr>
   </table>
+  <div *ngIf="list; else loading">
   <event-row
-    *ngFor = "let event of schedule | filter: search:searchField"
+    *ngFor = "let event of list | filter: search:searchField"
     [event] = "event"
     (click) = "renderEventDetails(event)"
   ></event-row>
+  </div>
 </div>
+
+<ng-template #loading>
+  <p class="centerText">Завантажуємо...</p>
+</ng-template>

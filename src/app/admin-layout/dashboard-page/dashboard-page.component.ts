@@ -4,6 +4,7 @@ import {EventsService} from '../../main-layout/components/event/events.service';
 import {Event} from '../../main-layout/components/event/event.model';
 import {Subscription} from 'rxjs';
 import {Schedule} from '../../main-layout/schedule/schedule';
+import {AlertService} from '../services/alert.service';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -17,7 +18,8 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
 
   constructor(
     private auth: AuthService,
-    private eventsServise: EventsService
+    private eventsServise: EventsService,
+    private alertService: AlertService
   ) { }
 
   ngOnInit(): void {}
@@ -31,6 +33,7 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
   remove(id: string) {
     this.dSub = this.eventsServise.remove(id).subscribe(() => {
       Schedule.schedule = Schedule.schedule.filter(event => event.id !== id);
+      this.alertService.warning('Захід видалено!');
     });
   }
 

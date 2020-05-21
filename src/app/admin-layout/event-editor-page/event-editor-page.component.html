@@ -1,8 +1,7 @@
 <div *ngIf="eventEditorform; else loading"
   class = "editorContainer"
   id = "mainContainer"
-  [ngClass]="{valid: eventEditorform.valid,
-		      invalid: eventEditorform.invalid && eventEditorform.touched}">
+  [ngClass]="{invalid: eventEditorform.invalid && eventEditorform.touched}">
 
   <h3>РЕДАГУЙТЕ ЗАХІД</h3>
 
