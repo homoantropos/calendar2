@@ -1,9 +1,9 @@
-import { Component, ViewChild, Output, EventEmitter, ElementRef, OnInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-
 import { Event } from '../../main-layout/components/event/event.model';
 import {DateProviderService} from '../../shared/services/date-provider.service';
 import {Schedule} from '../../main-layout/schedule/schedule';
+import {EventsService} from '../../main-layout/components/event/events.service';
 
 @Component({
   selector: 'app-event-creator',
@@ -12,44 +12,41 @@ import {Schedule} from '../../main-layout/schedule/schedule';
 })
 
 export class EventCreatorComponent implements OnInit {
+  eventCreatorForm: FormGroup;
+  @ViewChild('titleInput') elTitle: ElementRef;
+  isVisible = true;
+  submitted = false;
 
-eventCreatorForm: FormGroup;
-@ViewChild('titleInput') elTitle: ElementRef;
-isVisible = true;
-
-  constructor(private dateProvider: DateProviderService) { }
+  constructor(
+    private dateProvider: DateProviderService,
+    private eventService: EventsService) { }
 
   ngOnInit(): void {
     this.eventCreatorForm = new FormGroup ({
       title: new FormControl('', Validators.required),
-      startDay: new FormGroup({
-        year: new FormControl('', Validators.required),
-        month: new FormControl('', Validators.required),
-        day: new FormControl('', Validators.required)}),
-      finishDay: new FormGroup({
-        year: new FormControl('', Validators.required),
-        month: new FormControl('', Validators.required),
-        day: new FormControl('', Validators.required)}),
+      startDay: new FormControl('', Validators.required),
+      finishDay: new FormControl('', Validators.required),
       town: new FormControl('', Validators.required),
       country: new FormControl(''),
       region: new FormControl('')
     });
   }
   createEvent(valueF: any) {
-    const event = new Event (
-        valueF.title,
-        this.dateProvider.dateProvide(valueF.startDay),
-        this.dateProvider.dateProvide(valueF.finishDay),
-        valueF.town,
-        Schedule.countId,
-        valueF.country,
-        valueF.region
-      );
-    Schedule.schedule.push(event);
-    Schedule.countId = Schedule.countId++;
-    // @ts-ignore
-    Schedule.schedule.sort((a, b) => a.startDay - b.startDay);
-    this.eventCreatorForm.reset();
-    this.elTitle.nativeElement.focus();
+    if (this.eventCreatorForm.invalid) {
+      return;
+    }
+    this.submitted = true;
+    const event = (valueF as Event);
+    event.duration = 1 + ((valueF.finishDay - valueF.startDay) / (1000 * 60 * 60 * 24));
+    this.eventService.add(event).subscribe(() => {
+      Schedule.schedule.push(event);
+      // @ts-ignore
+      Schedule.schedule.sort((a, b) => a.startDay - b.startDay);
+      this.eventCreatorForm.reset();
+      this.elTitle.nativeElement.focus();
+      this.submitted = false;
+    }, () => {
+      this.submitted = false;
+    });
   }
 }

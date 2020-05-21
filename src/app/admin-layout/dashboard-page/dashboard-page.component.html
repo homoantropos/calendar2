@@ -1,3 +1,20 @@
-<div>
-  Панель адміністратора
+<div *ngIf="schedule" class="dashBoard">
+  <input class="search" type="text" placeholder="пошук..." [(ngModel)]="search">
+  <table>
+    <thead>
+    <tr>
+      <th>Назва</th>
+      <th>Дата початку</th>
+      <th>Дії</th>
+    </tr>
+    </thead>
+    <tr *ngFor="let event of schedule | appSearch:search">
+      <td>{{ event.title }}</td>
+      <td>{{ event.startDay | date:'dd.MM.yyyy'}}</td>
+      <td>
+        <button mat-button [routerLink]="['/admin', 'schedule', event.id, 'edit']">Редагувати</button>
+        <button mat-button (click)="remove(event.id)">Видалити</button>
+      </td>
+    </tr>
+  </table>
 </div>

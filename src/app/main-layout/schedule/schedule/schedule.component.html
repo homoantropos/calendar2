@@ -1,47 +1,35 @@
-<header class="mainHeader">
-  <h1>
-    <a routerLink="/">
-      КОМІТЕТ З ФІЗИЧНОГО ВИХОВАННЯ ТА СПОРТУ МІНІСТЕРСТВА ОСВІТИ І НАУКИ УКРАЇНИ<br>
-      спортивно-масові та спортивні заходи серед учнів та студентів
-    </a>
-  </h1>
-  <nav class="navig">
-    <ul>
-      <li routerLinkActive = "active" [routerLinkActiveOptions] = "{exact: true}"><a routerLink="/">Головна</a></li>
-      <li routerLinkActive = "active"><a routerLink="/schedule">Календар</a></li>
-    </ul>
-    <ul>
-      <li>
-        <input name = "search" type = "text" placeholder = "Пошук за {{placeHolderName}}" [(ngModel)] = "search" #filterInput>
-      </li>
-      <li>
-        <span> Змінити, шукати за: </span>
-      </li>
-      <li>
-        <button id="changeSearch" mat-raised-button (click) = "changeSearchField()">
-          <small>{{ buttonName }}</small>
-        </button>
-      </li>
-      <li>
-        <button mat-raised-button *ngIf="auth.isAuthenticated()" (click) = "isVisible = !isVisible">
-          <small *ngIf = "!isVisible">Додати захід</small>
-          <small *ngIf  = "isVisible">Сховати</small>
-        </button>
-      </li>
-    </ul>
-  </nav>
-</header>
+<nav class="navig">
+  <ul>
+    <li routerLinkActive = "active" [routerLinkActiveOptions] = "{exact: true}"><a routerLink="/">Головна</a></li>
+    <li routerLinkActive = "active"><a routerLink="/schedule">Календар</a></li>
+  </ul>
+  <ul>
+    <li>
+      <input name = "search" type = "text" placeholder = "Пошук за {{placeHolderName}}" [(ngModel)] = "search" #filterInput>
+    </li>
+    <li>
+      <span> Змінити, шукати за: </span>
+    </li>
+    <li>
+      <button id="changeSearch" mat-button (click) = "changeSearchField()">
+        <small>{{ buttonName }}</small>
+      </button>
+    </li>
+  </ul>
+</nav>
 
-<div id="forCalendar" [ngClass] = "{forCalendarWide: !isVisible, forCalendarTight: isVisible}">
+<div id="forCalendar" class="forCalendar">
   <table>
     <thead>
-    <th class = "title">НАЗВА ЗАХОДУ</th>
-    <th class = "startDay">Початок</th>
-    <th class = "finishDay">Закінчення</th>
-    <th class = "duration">Днів</th>
-    <th class = "country">Країна проведення</th>
-    <th class = "region">Регіон</th>
-    <th class = "town">Місто</th>
+      <tr>
+        <th class = "title">НАЗВА ЗАХОДУ</th>
+        <th class = "startDay">Початок</th>
+        <th class = "finishDay">Закінчення</th>
+        <th class = "duration">Днів</th>
+        <th class = "country">Країна проведення</th>
+        <th class = "region">Регіон</th>
+        <th class = "town">Місто</th>
+      </tr>
     </thead>
   </table>
   <event-row
@@ -49,8 +37,4 @@
     [event] = "event"
     (click) = "renderEventDetails(event)"
   ></event-row>
-</div>
-
-<div class = "forCreator" *appToggle = "isVisible">
-  <app-event-creator></app-event-creator>
 </div>

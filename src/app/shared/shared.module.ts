@@ -9,28 +9,40 @@ import {EventCreatorComponent} from '../admin-layout/event-creator/event-creator
 import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import {SearchPipe} from './pipes/search.pipe';
 
 @NgModule({
   declarations: [
     ToggleDirective,
     MagnifierDirective,
     FilterPipe,
+    SearchPipe,
     EventCreatorComponent
   ],
   imports: [
     FormsModule,
     ReactiveFormsModule,
+    MatFormFieldModule,
     MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     MatButtonModule,
     HttpClientModule,
     CommonModule
   ],
   exports: [
+    MatFormFieldModule,
     MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     MatButtonModule,
     ToggleDirective,
     MagnifierDirective,
     FilterPipe,
+    SearchPipe,
     EventCreatorComponent
   ]
 })

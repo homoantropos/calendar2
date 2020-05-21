@@ -1,155 +1,96 @@
-<div
-	class = "mainContain"
-	id = "mainContainer"
-	*appToggle = "isVisible"
-	[ngClass]="{valid: eventCreatorForm.valid,
+<div class = "creatorContainer" [ngClass]="{valid: eventCreatorForm.valid,
 		      invalid: eventCreatorForm.invalid && eventCreatorForm.touched}">
+<div *ngIf="eventCreatorForm; else loading" id = "mainContainer">
 
- <p class = "header">СТВОРІТЬ ЗАХІД</p>
+  <h3>ДОДАЙТЕ ЗАХІД</h3>
 
- <form
-	name = "eventCreatorForm"
-	[formGroup] = "eventCreatorForm"
-	(ngSubmit) = "createEvent(eventCreatorForm.value)">
+  <form
+    name = "eventCreatorForm"
+    [formGroup] = "eventCreatorForm"
+    (ngSubmit) = "createEvent(eventCreatorForm.value)">
 
-  <label for = "title">Назва:</label>
-  <input matInput
-	name = "title"
-	id = "title"
-	type = "text"
-	title = "Введіть назву заходу."
-	placeholder = "Назва..."
-	#titleInput
-	formControlName = "title"
-  >
-  <div class = "error"
-	*ngIf = "eventCreatorForm.get('title').invalid && eventCreatorForm.get('title').touched">
-   <small *ngIf = "eventCreatorForm.get('title').errors.required">Поле повинне бути заповнене</small>
-  </div>
+    <label for = "title">Назва:</label>
+    <input
+      name = "title"
+      id = "title"
+      type = "text"
+      title = "Введіть назву заходу."
+      formControlName = "title"
+    >
+    <div class = "error"
+         *ngIf = "eventCreatorForm.get('title').invalid && eventCreatorForm.get('title').touched">
+      <small *ngIf = "eventCreatorForm.get('title').errors.required">Поле повинне бути заповнене</small>
+    </div>
+    <div>
+      <label for = "startDay">Дата початку: </label>
+      <input class="forDateInput" id="startDay" matInput [matDatepicker]="pickerStartDay" formControlName="startDay" type="date">
+      <mat-datepicker-toggle matPrefix [for]="pickerStartDay"></mat-datepicker-toggle>
+      <mat-datepicker #pickerStartDay></mat-datepicker>
 
-  <label for = "startDay">Дата початку:</label>
-  <form formGroupName = "startDay" id = "startDay">
-   <input matInput class = "forDateInput"
-	name = "year"
-	type = "text"
-	title = "Введіть рік початку заходу."
-	placeholder = "Рік..."
-	formControlName = "year"
-   >
-   <div class = "error"
-	*ngIf = "eventCreatorForm.get('startDay').get('year').invalid && eventCreatorForm.get('startDay').get('year').touched">
-    <small *ngIf = "eventCreatorForm.get('startDay').get('year').errors.required">Поле повинне бути заповнене</small>
-   </div>
+      <div class = "error"
+           *ngIf = "eventCreatorForm.get('startDay').invalid && eventCreatorForm.get('startDay').touched">
+        <small *ngIf = "eventCreatorForm.get('startDay').errors.required">Поле повинне бути заповнене</small>
+      </div>
 
-   <input matInput class = "forDateInput"
-	name = "month"
-	type = "text"
-	title = "Введіть місяць початку заходу."
-	placeholder = "Місяць..."
-	formControlName = "month"
-   >
-   <div class = "error"
-	*ngIf = "eventCreatorForm.get('startDay').get('month').invalid && eventCreatorForm.get('startDay').get('month').touched">
-    <small *ngIf = "eventCreatorForm.get('startDay').get('month').errors.required">Поле повинне бути заповнене</small>
-   </div>
+      <label for = "finishDay">Дата завершення: </label>
+      <input class="forDateInput" id="finishDay" matInput [matDatepicker]="pickerFinishDay" formControlName="finishDay" type="date">
+      <mat-datepicker-toggle matPrefix [for]="pickerFinishDay"></mat-datepicker-toggle>
+      <mat-datepicker #pickerFinishDay></mat-datepicker>
 
-   <input matInput class = "forDateInput"
-	name = "day"
-	type = "text"
-	title = "Введіть день початку заходу."
-	placeholder = "День..."
-	formControlName = "day"
-   >
-   <div class = "error"
-	*ngIf = "eventCreatorForm.get('startDay').get('day').invalid && eventCreatorForm.get('startDay').get('day').touched">
-    <small *ngIf = "eventCreatorForm.get('startDay').get('day').errors.required">Поле повинне бути заповнене</small>
-   </div>
+      <div class = "error"
+           *ngIf = "eventCreatorForm.get('finishDay').invalid && eventCreatorForm.get('finishDay').touched">
+        <small *ngIf = "eventCreatorForm.get('finishDay').errors.required">Поле повинне бути заповнене</small>
+      </div>
+    </div>
+
+    <label for = "country">Країна проведення:</label>
+    <input matInput
+           name = "country"
+           id = "country"
+           type = "text"
+           title = "Введіть назву країни проведення заходу."
+           placeholder = "Країна..."
+           formControlName = "country"
+    >
+
+    <label for = "region">Територія:</label>
+    <input matInput
+           name = "region"
+           id = "region"
+           type = "text"
+           title = "Введіть територію (область України або місто Київ) проведення заходу."
+           placeholder = "Територія..."
+           formControlName = "region"
+    >
+
+    <label for = "town">Місто:</label>
+    <input matInput
+           name = "town"
+           id = "town"
+           type = "text"
+           title = "Введіть місто проведення заходу."
+           placeholder = "Місто..."
+           formControlName = "town"
+    >
+    <div class = "error"
+         *ngIf = "eventCreatorForm.get('town').invalid && eventCreatorForm.get('town').touched">
+      <small *ngIf = "eventCreatorForm.get('town').errors.required">Поле повинне бути заповнене</small>
+    </div>
+
+    <button
+      mat-raised-button
+      color = "primary"
+      type = "submit"
+      [disabled] = "eventCreatorForm.invalid || submitted"
+    >
+      Оновити
+    </button>
 
   </form>
 
-  <label for = "finishDay">Дата завершення:</label>
-  <form formGroupName = "finishDay" id = "finishDay">
+</div>
 
-   <input matInput class = "forDateInput"
-	name = "year"
-	type = "text"
-	title = "Введіть рік завершення заходу."
-	placeholder = "Рік..."
-	formControlName = "year"
-   >
-   <div class = "error"
-	*ngIf = "eventCreatorForm.get('finishDay').get('year').invalid && eventCreatorForm.get('finishDay').get('year').touched">
-    <small *ngIf = "eventCreatorForm.get('finishDay').get('year').errors.required">Поле повинне бути заповнене</small>
-   </div>
-
-   <input matInput class = "forDateInput"
-	name = "month"
-	type = "text"
-	title = "Введіть місяць завершення заходу."
-	placeholder = "Місяць..."
-	formControlName = "month"
-   >
-   <div class = "error"
-	*ngIf = "eventCreatorForm.get('finishDay').get('month').invalid && eventCreatorForm.get('finishDay').get('month').touched">
-    <small *ngIf = "eventCreatorForm.get('finishDay').get('month').errors.required">Поле повинне бути заповнене</small>
-   </div>
-
-   <input matInput class = "forDateInput"
-	name = "day"
-	type = "text"
-	title = "Введіть день завершення заходу."
-	placeholder = "День..."
-	formControlName = "day"
-   >
-   <div class = "error"
-	*ngIf = "eventCreatorForm.get('finishDay').get('day').invalid && eventCreatorForm.get('finishDay').get('day').touched">
-    <small *ngIf = "eventCreatorForm.get('finishDay').get('day').errors.required">Поле повинне бути заповнене</small>
-   </div>
-  </form>
-
-  <label for = "country">Країна проведення:</label>
-  <input matInput
-	name = "country"
-	id = "country"
-	type = "text"
-	title = "Введіть назву країни проведення заходу."
-	placeholder = "Країна..."
-	formControlName = "country"
-  >
-
-  <label for = "region">Територія:</label>
-  <input matInput
-	name = "region"
-	id = "region"
-	type = "text"
-	title = "Введіть територію (область України або місто Київ) проведення заходу."
-	placeholder = "Територія..."
-	formControlName = "region"
-  >
-
-  <label for = "town">Місто:</label>
-  <input matInput
-	name = "town"
-	id = "town"
-	type = "text"
-	title = "Введіть місто проведення заходу."
-	placeholder = "Місто..."
-	formControlName = "town"
-  >
-  <div class = "error"
-	*ngIf = "eventCreatorForm.get('town').invalid && eventCreatorForm.get('town').touched">
-   <small *ngIf = "eventCreatorForm.get('town').errors.required">Поле повинне бути заповнене</small>
-  </div>
-
-  <button
-	mat-raised-button
-	color = "primary"
-	type = "submit"
-	[disabled] = "eventCreatorForm.invalid"
-  >
-   Створити
-  </button>
-
- </form>
-
+<ng-template #loading>
+  <p class="center">Завантажується...</p>
+</ng-template>
 </div>

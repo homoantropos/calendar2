@@ -1,0 +1,29 @@
+.creatorContainer {
+  width: 70%;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  border: solid grey 0.1vw;
+  padding: 10px;
+  margin-top: 10px;
+  font-family: "Roboto Condensed", Roboto, "Helvetica Neue", sans-serif;
+  color: maroon;
+}
+
+.creatorContainer form {
+  display: block;
+  justify-content: space-between;
+}
+
+.creatorContainer h3 {
+  font-family: "Roboto Condensed", Roboto, "Helvetica Neue", sans-serif;
+}
+
+.creatorContainer button {
+  border-radius: unset;
+}
+
+.creatorContainer input {
+  margin-bottom: 10px;
+  font-family: "Roboto Condensed", Roboto, "Helvetica Neue", sans-serif;
+}

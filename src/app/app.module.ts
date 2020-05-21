@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {NgModule, Provider} from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
 
@@ -14,6 +14,15 @@ import {EventRowComponent} from './main-layout/components/event/event-row/event-
 import {EventDetailsComponent} from './main-layout/components/event/event-details/event-details.component';
 import {HomePageComponent} from './main-layout/home-page/home-page.component';
 import {EventsService} from './main-layout/components/event/events.service';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {AuthInterceptor} from './admin-layout/auth-guard/auth.interceptor';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
+const INTERCEPTION_PROVIDER: Provider = {
+  provide: HTTP_INTERCEPTORS,
+  multi: true,
+  useClass: AuthInterceptor
+};
 
 @NgModule({
   declarations: [
@@ -28,12 +37,12 @@ import {EventsService} from './main-layout/components/event/events.service';
   imports: [
     BrowserModule,
     FormsModule,
-    BrowserAnimationsModule,
     SharedModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [
-    EventsService
+    INTERCEPTION_PROVIDER
   ],
   bootstrap: [AppComponent]
 })

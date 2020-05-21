@@ -1,1 +1,97 @@
-<p>edit-event-page works!</p>
+<div *ngIf="eventEditorform; else loading"
+  class = "editorContainer"
+  id = "mainContainer"
+  [ngClass]="{valid: eventEditorform.valid,
+		      invalid: eventEditorform.invalid && eventEditorform.touched}">
+
+  <h3>РЕДАГУЙТЕ ЗАХІД</h3>
+
+  <form
+    name = "eventCreatorForm"
+    [formGroup] = "eventEditorform"
+    (ngSubmit) = "editeEvent(eventEditorform.value)">
+
+    <label for = "title">Назва:</label>
+    <input
+      name = "title"
+      id = "title"
+      type = "text"
+      title = "Введіть назву заходу."
+      formControlName = "title"
+    >
+    <div class = "error"
+         *ngIf = "eventEditorform.get('title').invalid && eventEditorform.get('title').touched">
+      <small *ngIf = "eventEditorform.get('title').errors.required">Поле повинне бути заповнене</small>
+    </div>
+    <div>
+        <label for = "startDay">Дата початку: </label>
+          <input class="forDateInput" id="startDay" matInput [matDatepicker]="pickerStartDay" formControlName="startDay" type="date">
+          <mat-datepicker-toggle matPrefix [for]="pickerStartDay"></mat-datepicker-toggle>
+          <mat-datepicker #pickerStartDay></mat-datepicker>
+
+        <div class = "error"
+             *ngIf = "eventEditorform.get('startDay').invalid && eventEditorform.get('startDay').touched">
+          <small *ngIf = "eventEditorform.get('startDay').errors.required">Поле повинне бути заповнене</small>
+        </div>
+
+        <label for = "finishDay">Дата завершення: </label>
+            <input class="forDateInput" id="finishDay" matInput [matDatepicker]="pickerFinishDay" formControlName="finishDay" type="date">
+            <mat-datepicker-toggle matPrefix [for]="pickerFinishDay"></mat-datepicker-toggle>
+            <mat-datepicker #pickerFinishDay></mat-datepicker>
+
+          <div class = "error"
+               *ngIf = "eventEditorform.get('finishDay').invalid && eventEditorform.get('finishDay').touched">
+            <small *ngIf = "eventEditorform.get('finishDay').errors.required">Поле повинне бути заповнене</small>
+          </div>
+    </div>
+
+    <label for = "country">Країна проведення:</label>
+    <input matInput
+           name = "country"
+           id = "country"
+           type = "text"
+           title = "Введіть назву країни проведення заходу."
+           placeholder = "Країна..."
+           formControlName = "country"
+    >
+
+    <label for = "region">Територія:</label>
+    <input matInput
+           name = "region"
+           id = "region"
+           type = "text"
+           title = "Введіть територію (область України або місто Київ) проведення заходу."
+           placeholder = "Територія..."
+           formControlName = "region"
+    >
+
+    <label for = "town">Місто:</label>
+    <input matInput
+           name = "town"
+           id = "town"
+           type = "text"
+           title = "Введіть місто проведення заходу."
+           placeholder = "Місто..."
+           formControlName = "town"
+    >
+    <div class = "error"
+         *ngIf = "eventEditorform.get('town').invalid && eventEditorform.get('town').touched">
+      <small *ngIf = "eventEditorform.get('town').errors.required">Поле повинне бути заповнене</small>
+    </div>
+
+    <button
+      mat-raised-button
+      color = "primary"
+      type = "submit"
+      [disabled] = "eventEditorform.invalid || submitted"
+    >
+      Оновити
+    </button>
+
+  </form>
+
+</div>
+
+<ng-template #loading>
+  <p class="center">Завантажується...</p>
+</ng-template>

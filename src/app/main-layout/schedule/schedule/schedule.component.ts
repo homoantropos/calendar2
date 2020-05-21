@@ -12,7 +12,6 @@ import {AuthService} from '../../../admin-layout/auth-guard/auth.service';
 
 export class ScheduleComponent implements OnInit {
 
-  isVisible = false;
   search = '';
   searchField = 'title';
   @ViewChild('filterInput') filterInputRef: ElementRef;
@@ -35,7 +34,7 @@ export class ScheduleComponent implements OnInit {
     if (this.searchField === 'title') {
       this.searchField = 'startDay';
       this.buttonName = 'Назвою';
-      this.placeHolderName = 'датою...';
+      this.placeHolderName = 'датою ...';
     } else {
       this.searchField = 'title';
       this.buttonName = 'Датою';

@@ -9,6 +9,7 @@ import { EventEditorPageComponent } from './event-editor-page/event-editor-page.
 import {AuthService} from './auth-guard/auth.service';
 import { DashboardPageComponent } from './dashboard-page/dashboard-page.component';
 import {AuthGuard} from './auth-guard/auth.guard';
+import { AlertComponent } from './components/alert/alert.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import {AuthGuard} from './auth-guard/auth.guard';
     AdminLayoutComponent,
     LoginPageComponent,
     EventEditorPageComponent,
-    DashboardPageComponent
+    DashboardPageComponent,
+    AlertComponent
   ],
   providers: [
     AuthGuard

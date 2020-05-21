@@ -1,20 +1,11 @@
-<header class="mainHeader">
-  <h1>
-    <a routerLink="/">
-      КОМІТЕТ З ФІЗИЧНОГО ВИХОВАННЯ ТА СПОРТУ МІНІСТЕРСТВА ОСВІТИ І НАУКИ УКРАЇНИ<br>
-      спортивно-масові та спортивні заходи серед учнів та студентів
-    </a>
-  </h1>
-  <nav class="navig">
-    <h2>Admin panel</h2>
-    <ul  *ngIf="auth.isAuthenticated()">
-      <li routerLinkActive = "active" [routerLinkActiveOptions] = "{exact: true}">
-        <a [routerLink]="['/admin', 'dashboard']">Головна</a></li>
-      <li routerLinkActive = "active"><a [routerLink]="['/admin', 'create']">Додати</a></li>
-      <li (click)="logOut($event)"><a href="#">Вийти</a></li>
-    </ul>
-  </nav>
-</header>
+<nav class="navig">
+  <h2>Admin panel</h2>
+  <ul  *ngIf="auth.isAuthenticated()">
+   <li routerLinkActive = "active" [routerLinkActiveOptions] = "{exact: true}">
+    <a [routerLink]="['/admin', 'dashboard']">Головна</a></li>
+   <li routerLinkActive = "active"><a [routerLink]="['/admin', 'create']">Додати</a></li>
+   <li (click)="logOut($event)"><a href="#">Вийти</a></li>
+  </ul>
+</nav>
 
 <router-outlet></router-outlet>
-

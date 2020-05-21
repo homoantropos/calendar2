@@ -3,32 +3,30 @@ export class Event {
   startDay: Date;
   finishDay: Date;
   duration: number;
+  town: string;
   country?: string;
   region?: string;
-  town: string;
+  id?: string;
   sportHallTitle?: string;
-  id: number;
 
 constructor(
   title: string,
   startDay: Date,
   finishDay: Date,
   town: string,
-  id: number,
   country?: string,
   region?: string,
-  sportHallTitle?: string
+  id?: string
 ) {
   this.title = title;
   this.startDay = startDay;
   this.finishDay = finishDay;
-  // @ts-ignore
-  this.duration = 1 + ( (finishDay - startDay) / (1000 * 60 * 60 * 24) );
+  this.town = town;
   this.country = country;
   this.region = region;
-  this.town = town;
-  this.sportHallTitle = sportHallTitle;
   this.id = id;
+  // @ts-ignore
+  this.duration = 1 + ( (finishDay - startDay) / (1000 * 60 * 60 * 24) );
 }
 
 }
